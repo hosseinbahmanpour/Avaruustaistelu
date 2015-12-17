@@ -1,4 +1,7 @@
-Avaruustaistelu
+*Aihe:* Avaruustaistelu on peli, missä kaksi avaruusalusta ottaa toisistaan mittaa eeppisessä taistelussa!
 
-tavoitteena on luoda kaksinpelattava avaruustaisteupeli.
-ruudulla näkyy ainakin kaksi avaruusalusta, jotka voivat ampua toisiaan ohjuksilla. jokaista alusta ohjaa yksi pelaaja näppäimistön avulla.
+*Käyttäjät:* Kaksi pelaajaa.
+
+*Kaikkien käyttäjien toiminnot:* Oman avaruusaluksen ohjaaminen näppäimistöllä, ja ohjusten ampuminen.
+
+
