@@ -20,27 +20,27 @@ private Pelaaja pelaaja1;
     @Test
     public void pelaajanKonstruktoriToimiiOikein() {
         assertEquals("Pelaaja 1", pelaaja1.getNimi());
-        assertEquals(10, pelaaja1.getElama());
-        assertTrue(pelaaja1.onkoAseLadattu());
+        assertEquals(100, pelaaja1.getElama());
+        assertTrue(pelaaja1.getAse().onkoAseLadattu());
     }
     
     @Test
     public void ottaaDamageeToimii(){
-        pelaaja1.ottaaDamagee();
-        assertEquals(9, pelaaja1.getElama());
+        pelaaja1.ottaaDamagee(1);
+        assertEquals(99, pelaaja1.getElama());
     }
     
     @Test
     public void ampuminenMuuttaaAseenTilanLataamattomaksi() {
-        pelaaja1.ammu();
-        assertFalse(pelaaja1.onkoAseLadattu());
+        pelaaja1.getAse().ammu();
+        assertFalse(pelaaja1.getAse().onkoAseLadattu());
     }
     
     @Test
     public void aseenLataaminenMuuttaaAseenTilanLadatuksi() {
-        pelaaja1.ammu();
-        pelaaja1.lataaAse();
-        assertTrue(pelaaja1.onkoAseLadattu());
+        pelaaja1.getAse().ammu();
+        pelaaja1.getAse().lataa();
+        assertTrue(pelaaja1.getAse().onkoAseLadattu());
     }
     
 }

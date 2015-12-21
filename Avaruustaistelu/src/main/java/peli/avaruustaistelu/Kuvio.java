@@ -13,7 +13,13 @@ public class Kuvio {
     private double suuntaKulma;
 
     public Kuvio() {
-
+        setShape(null);
+        setX(0);
+        setY(0);
+        setVauhtiX(0);
+        setVauhtiY(0);
+        setSuuntaKulma(0);
+        setLiikkumisKulma(0);
     }
 
     public void setShape(Shape shape) {
