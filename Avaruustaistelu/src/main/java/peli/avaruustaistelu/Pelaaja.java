@@ -14,6 +14,10 @@ public class Pelaaja {
         this.ase = true;
     }
 
+    public String getNimi() {
+        return nimi;
+    }
+    
     public int getElama() {
         return elama;
     }

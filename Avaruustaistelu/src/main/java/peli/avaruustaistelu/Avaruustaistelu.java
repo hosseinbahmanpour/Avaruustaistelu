@@ -1,4 +1,3 @@
-
 package peli.avaruustaistelu;
 
 import java.applet.Applet;
@@ -9,9 +8,9 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class Avaruustaistelu extends Applet implements Runnable, KeyListener{
-    
-    Thread peliLooppi;    
+public class Avaruustaistelu extends Applet implements Runnable, KeyListener {
+
+    Thread peliLooppi;
     BufferedImage varmuusKuva;
     Graphics2D g;
     boolean naytaRajat = false;
@@ -20,9 +19,7 @@ public class Avaruustaistelu extends Applet implements Runnable, KeyListener{
     Pelaaja pelaaja2 = new Pelaaja("Pelaaja 2");
     Alus alus1 = new Alus();
     Alus alus2 = new Alus();
-    AffineTransform at = new AffineTransform();    
-    
-    
+    AffineTransform at = new AffineTransform();
 
     @Override
     public void run() {
@@ -43,5 +40,5 @@ public class Avaruustaistelu extends Applet implements Runnable, KeyListener{
     public void keyReleased(KeyEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
