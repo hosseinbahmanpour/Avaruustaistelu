@@ -18,7 +18,7 @@ public class KuvioTest {
     public void setUp() {
         this.kuvio = new Kuvio();
         this.r = new Rectangle(0, 0, 1, 1);
-        kuvio.setShape(r);
+        kuvio.setMuoto(r);
         kuvio.setX(10);
         kuvio.setY(10);
         kuvio.setSuuntaKulma(20);
@@ -30,7 +30,7 @@ public class KuvioTest {
     @Test
     public void konstruktoriToimiiOikein() {
         Kuvio k = new Kuvio();
-        assertEquals(null, k.getShape());
+        assertEquals(null, k.getMuoto());
         assertEquals(0, k.getLiikkumisKulma(), DELTA);
         assertEquals(0, k.getSuuntaKulma(), DELTA);
         assertEquals(0, k.getVauhtiX(), DELTA);
@@ -40,8 +40,8 @@ public class KuvioTest {
     }
 
     @Test
-    public void kuvionShapeToimiiOikein() {
-        assertEquals(r, kuvio.getShape());
+    public void kuvionMuotoToimiiOikein() {
+        assertEquals(r, kuvio.getMuoto());
     }
     
     @Test

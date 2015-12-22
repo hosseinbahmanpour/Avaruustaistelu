@@ -1,10 +1,11 @@
 package peli.avaruustaistelu;
 
+import java.awt.Graphics;
 import java.awt.Shape;
 
 public class Kuvio {
 
-    private Shape shape;
+    private Shape muoto;
     private double x;
     private double y;
     private double vauhtiX;
@@ -12,22 +13,12 @@ public class Kuvio {
     private double liikkumisKulma;
     private double suuntaKulma;
 
-    public Kuvio() {
-        setShape(null);
-        setX(0);
-        setY(0);
-        setVauhtiX(0);
-        setVauhtiY(0);
-        setSuuntaKulma(0);
-        setLiikkumisKulma(0);
+    public void setMuoto(Shape muoto) {
+        this.muoto = muoto;
     }
 
-    public void setShape(Shape shape) {
-        this.shape = shape;
-    }
-
-    public Shape getShape() {
-        return shape;
+    public Shape getMuoto() {
+        return muoto;
     }
 
     public double getX() {

@@ -9,7 +9,7 @@ public class Alus extends Kuvio {
     private final int[] MUOTO_Y = {6, 7, 7, 7, 6, -7};
 
     public Alus() {
-        setShape(new Polygon(MUOTO_X, MUOTO_Y, 6));
+        setMuoto(new Polygon(MUOTO_X, MUOTO_Y, 6));
     }
 
     public Rectangle osumaRaja() {

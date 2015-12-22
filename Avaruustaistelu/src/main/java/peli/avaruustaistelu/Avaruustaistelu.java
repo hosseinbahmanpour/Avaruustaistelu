@@ -15,10 +15,8 @@ public class Avaruustaistelu extends Applet implements Runnable, KeyListener {
     Graphics2D g;
     boolean naytaRajat = false;
     ArrayList<Luoti> luodit;
-    Pelaaja pelaaja1 = new Pelaaja("Pelaaja 1");
-    Pelaaja pelaaja2 = new Pelaaja("Pelaaja 2");
-    Alus alus1 = new Alus();
-    Alus alus2 = new Alus();
+    Pelaaja p1 = new Pelaaja("Pelaaja 1");
+    Pelaaja p2 = new Pelaaja("Pelaaja 2");
     AffineTransform at = new AffineTransform();
 
     @Override
