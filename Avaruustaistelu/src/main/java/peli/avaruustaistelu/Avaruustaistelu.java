@@ -154,51 +154,6 @@ public class Avaruustaistelu extends JApplet implements Runnable, KeyListener {
 
     public void tarkistaTormaykset() {
 
-//        for (int i = 0; i < laaserit.size(); i++) {
-//            Laaseri l = laaserit.get(i);
-//            Point2D laaserinKeskipiste = l.getKeskipiste();
-//
-//            for (int j = 0; j < alukset.size(); j++) {
-//                Alus a = alukset.get(i);
-//                Point2D aluksenKeskipiste = a.getKeskipiste();
-//
-//                double etaisyys = laaserinKeskipiste.distance(aluksenKeskipiste);
-//                if (etaisyys <= (l.getSade() + a.getSade()) {
-//                    
-//
-//                    //split larger asteroids into smaller ones, remove smaller asteroids from screen
-//                    if (a.getRadius() >= 60) {
-//                        for (int k = 0; k < 3; k++) {
-//                            explodingLines.add(a.explode());
-//                        }
-//                        split(i);
-//                        score += 200;
-//                    } else if (a.getRadius() >= 30) {
-//                        for (int k = 0; k < 3; k++) {
-//                            explodingLines.add(a.explode());
-//                        }
-//                        split(i);
-//                        score += 100;
-//                    } else {
-//                        for (int k = 0; k < 3; k++) {
-//                            explodingLines.add(a.explode());
-//                        }
-//                        asteroids.remove(i);
-//                        score += 50;
-//                    }
-//
-//                    laaserit.remove(j); //remove laser from screen
-//                }
-//            }
-//
-//            //check for collisions between ship and asteroid
-//            Point2D sCenter = ship.getCenter();
-//            double distanceBetween = aCenter.distance(sCenter);
-//            if (distanceBetween <= (a.getRadius() + ship.getRadius())) {
-//                alusTormays = true;
-//                shipExplode = true;
-//            }
-//        }
-//    }
+
     }
 }
