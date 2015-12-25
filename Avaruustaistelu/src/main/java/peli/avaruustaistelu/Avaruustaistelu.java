@@ -1,42 +1,204 @@
 package peli.avaruustaistelu;
 
-import java.applet.Applet;
-import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import javax.swing.JApplet;
 
-public class Avaruustaistelu extends Applet implements Runnable, KeyListener {
+public class Avaruustaistelu extends JApplet implements Runnable, KeyListener {
 
-    Thread peliLooppi;
-    BufferedImage varmuusKuva;
-    Graphics2D g;
-    boolean naytaRajat = false;
-    ArrayList<Luoti> luodit;
+    Thread thread;
+    long aloitusAika;
+    long lopetusAika;
+    long framePeriod;
+    Image img;
+    Dimension dim;
+    int leveys;
+    int korkeus;
+    Graphics g;
     Pelaaja p1 = new Pelaaja("Pelaaja 1");
     Pelaaja p2 = new Pelaaja("Pelaaja 2");
-    AffineTransform at = new AffineTransform();
+    Alus p1Alus;
+    Alus p2Alus;
+    boolean alusTormays;
+    ArrayList<Laaseri> laaserit = new ArrayList<>();
+    ArrayList<Alus> alukset = new ArrayList<>();
 
-    @Override
+    public void init() {
+        resize(800, 600);
+        dim = getSize();
+        leveys = dim.width;
+        korkeus = dim.height;
+        framePeriod = 25;
+        addKeyListener(this);
+        setFocusable(true);
+        p1Alus = new Alus(20, korkeus / 2, 0, .15, .5, .98);
+        p2Alus = new Alus(780, korkeus / 2, 0, .15, .5, .98);
+        alusTormays = false;
+        img = createImage(leveys, korkeus);
+        g = img.getGraphics();
+        thread = new Thread(this);
+        thread.start();
+    }
+
+    public void paint(Graphics gfx) {
+        Graphics2D g2d = (Graphics2D) g;
+        RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g2d.setRenderingHints(rh);
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(0, 0, leveys, korkeus);
+        g2d.setColor(Color.WHITE);
+        g2d.drawString(p1.getNimi() + " : " + p1.getElama(), 10, 10);
+        g2d.drawString(p2.getNimi() + " : " + p2.getElama(), 10, 590);
+
+        for (Laaseri l : laaserit) {
+            l.piirra(g2d);
+        }
+
+        p1Alus.piirra(g2d);
+        p2Alus.piirra(g2d);
+
+        gfx.drawImage(img, 0, 0, this);
+    }
+
+    public void update(Graphics gfx) {
+        paint(gfx);
+    }
+
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        while (true) {
+            aloitusAika = System.currentTimeMillis();
+            p1Alus.liiku(leveys, korkeus);
+            p2Alus.liiku(leveys, korkeus);
+
+            for (Laaseri l : laaserit) {
+                l.liiku(leveys, korkeus);
+            }
+            for (int i = 0; i < laaserit.size(); i++) {
+                if (!laaserit.get(i).getAktiivinen()) {
+                    laaserit.remove(i);
+                }
+            }
+
+            tarkistaTormaykset();
+
+            repaint();
+
+            try {
+                lopetusAika = System.currentTimeMillis();
+                if (framePeriod - (lopetusAika - aloitusAika) > 0) {
+                    Thread.sleep(framePeriod - (lopetusAika - aloitusAika));
+                }
+            } catch (InterruptedException e) {
+            }
+        }
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int key = e.getKeyCode();
+
+        if (key == KeyEvent.VK_SPACE) {
+            laaserit.add(p1Alus.ammu());
+        }
+        if (key == KeyEvent.VK_UP) {
+            p1Alus.setKiihtyyko(true);
+        }
+        if (key == KeyEvent.VK_RIGHT) {
+            p1Alus.setKaantyyOikealle(true);
+        }
+        if (key == KeyEvent.VK_LEFT) {
+            p1Alus.setKaantyyVasemmalle(true);
+        }
+        if (key == KeyEvent.VK_TAB) {
+            laaserit.add(p2Alus.ammu());
+        }
+        if (key == KeyEvent.VK_W) {
+            p2Alus.setKiihtyyko(true);
+        }
+        if (key == KeyEvent.VK_D) {
+            p2Alus.setKaantyyOikealle(true);
+        }
+        if (key == KeyEvent.VK_A) {
+            p2Alus.setKaantyyVasemmalle(true);
+        }
     }
 
-    @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int key = e.getKeyCode();
+
+        if (key == KeyEvent.VK_UP) {
+            p1Alus.setKiihtyyko(false);
+        }
+        if (key == KeyEvent.VK_RIGHT) {
+            p1Alus.setKaantyyOikealle(false);
+        }
+        if (key == KeyEvent.VK_LEFT) {
+            p1Alus.setKaantyyVasemmalle(false);
+        }
+        if (key == KeyEvent.VK_W) {
+            p2Alus.setKiihtyyko(false);
+        }
+        if (key == KeyEvent.VK_D) {
+            p2Alus.setKaantyyOikealle(false);
+        }
+        if (key == KeyEvent.VK_A) {
+            p2Alus.setKaantyyVasemmalle(false);
+        }
     }
 
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    public void tarkistaTormaykset() {
+
+//        for (int i = 0; i < laaserit.size(); i++) {
+//            Laaseri l = laaserit.get(i);
+//            Point2D laaserinKeskipiste = l.getKeskipiste();
+//
+//            for (int j = 0; j < alukset.size(); j++) {
+//                Alus a = alukset.get(i);
+//                Point2D aluksenKeskipiste = a.getKeskipiste();
+//
+//                double etaisyys = laaserinKeskipiste.distance(aluksenKeskipiste);
+//                if (etaisyys <= (l.getSade() + a.getSade()) {
+//                    
+//
+//                    //split larger asteroids into smaller ones, remove smaller asteroids from screen
+//                    if (a.getRadius() >= 60) {
+//                        for (int k = 0; k < 3; k++) {
+//                            explodingLines.add(a.explode());
+//                        }
+//                        split(i);
+//                        score += 200;
+//                    } else if (a.getRadius() >= 30) {
+//                        for (int k = 0; k < 3; k++) {
+//                            explodingLines.add(a.explode());
+//                        }
+//                        split(i);
+//                        score += 100;
+//                    } else {
+//                        for (int k = 0; k < 3; k++) {
+//                            explodingLines.add(a.explode());
+//                        }
+//                        asteroids.remove(i);
+//                        score += 50;
+//                    }
+//
+//                    laaserit.remove(j); //remove laser from screen
+//                }
+//            }
+//
+//            //check for collisions between ship and asteroid
+//            Point2D sCenter = ship.getCenter();
+//            double distanceBetween = aCenter.distance(sCenter);
+//            if (distanceBetween <= (a.getRadius() + ship.getRadius())) {
+//                alusTormays = true;
+//                shipExplode = true;
+//            }
+//        }
+//    }
+    }
 }
