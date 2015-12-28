@@ -1,36 +1,61 @@
 package peli.avaruustaistelu;
 
+import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AlusTest {
 
-    private Alus alus;
+    private Alus a;
     private final double DELTA = 1e-15;
 
     @Before
     public void setUp() {
-        alus = new Alus(0, 0, 0, .15, .5, .98);
+        a = new Alus(0, 0, 0, .15, .5, .98, Color.GREEN);
     }
 
     @Test
     public void konstruktoriToimiiOikein() {
-        assertEquals(0, alus.getX(), DELTA);
-        assertEquals(0, alus.getY(), DELTA);
-        assertEquals(12, alus.getSade(), DELTA);
+        assertEquals(0, a.getX(), DELTA);
+        assertEquals(0, a.getY(), DELTA);
+        assertEquals(12, a.getSade(), DELTA);
+        assertEquals(0, a.getKulma(), DELTA);
+        assertEquals(Color.GREEN, a.getVari());
     }
 
     @Test
     public void setXToimiiOikein() {
-        alus.setX(100);
-        assertEquals(100, alus.getX(), DELTA);
+        a.setX(100);
+        assertEquals(100, a.getX(), DELTA);
     }
 
     @Test
     public void setYToimiiOikein() {
-        alus.setY(100);
-        assertEquals(100, alus.getY(), DELTA);
+        a.setY(100);
+        assertEquals(100, a.getY(), DELTA);
     }
+    
+    @Test
+    public void kaantyminenOikealleToimiiOikein() {
+        a.setKaantyyOikealle(true);
+        a.liiku(100, 100);
+        assertEquals(0.15, a.getKulma(), DELTA);
+    }
+    
+    @Test
+    public void kaantyminenVasemmalleToimiiOikein() {
+        a.setKaantyyVasemmalle(true);
+        a.liiku(100, 100);        
+        assertEquals(-0.15, a.getKulma(), DELTA);
+    }
+    
+    @Test
+    public void kiihtyminenToimiiOikein() {
+        a.setKiihtyyko(true);
+        a.liiku(100, 100);
+        assertEquals(0.5, a.getX(), DELTA);
+    } 
+                
 
 }

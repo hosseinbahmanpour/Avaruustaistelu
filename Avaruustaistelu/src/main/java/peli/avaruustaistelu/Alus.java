@@ -1,6 +1,6 @@
 package peli.avaruustaistelu;
 
-import java.awt.*;
+import java.awt.Color;
 import java.awt.geom.Point2D;
 
 public class Alus {
@@ -17,16 +17,10 @@ public class Alus {
     private boolean kiihtyyko;
     private boolean kaantyyVasemmalle;
     private boolean kaantyyOikealle;
-    private final double[] xPisteetAlussa = {-15, -10, -15, 15};
-    private final double[] yPisteetAlussa = {10, 0, -10, 0};
-    private final double[] xPisteetAlussaLiekille = {-10, -25, -10};
-    private final double[] yPisteetAlussaLiekille = {5, 0, -5};
-    private int[] xPts;
-    private int[] yPts;
-    private int[] xPisteetLiekille;
-    private int[] yPisteetLiekille;
+    private Color aluksenVari;
 
-    public Alus(double x, double y, double kulma, double kaantymisNopeus, double kiihtyvyys, double ilmavastus) {
+    public Alus(double x, double y, double kulma, double kaantymisNopeus,
+            double kiihtyvyys, double ilmavastus, Color vari) {
         this.x = x;
         this.y = y;
         this.kulma = kulma;
@@ -36,28 +30,7 @@ public class Alus {
         kiihtyyko = false;
         kaantyyVasemmalle = false;
         kaantyyOikealle = false;
-        xPts = new int[4];
-        yPts = new int[4];
-        xPisteetLiekille = new int[3];
-        yPisteetLiekille = new int[3];
-    }
-
-    public void piirra(Graphics g) {
-        if (kiihtyyko) {
-            for (int i = 0; i < 3; i++) {
-                xPisteetLiekille[i] = (int) (xPisteetAlussaLiekille[i] * Math.cos(kulma) - yPisteetAlussaLiekille[i] * Math.sin(kulma) + x + 0.5);
-                yPisteetLiekille[i] = (int) (yPisteetAlussaLiekille[i] * Math.sin(kulma) + yPisteetAlussaLiekille[i] * Math.cos(kulma) + y + 0.5);
-            }
-            g.setColor(Color.ORANGE);
-            g.fillPolygon(xPisteetLiekille, yPisteetLiekille, 3);
-        }
-
-        for (int i = 0; i < 4; i++) {
-            xPts[i] = (int) (xPisteetAlussa[i] * Math.cos(kulma) - yPisteetAlussa[i] * Math.sin(kulma) + x + 0.5);
-            yPts[i] = (int) (xPisteetAlussa[i] * Math.sin(kulma) + yPisteetAlussa[i] * Math.cos(kulma) + y + 0.5);
-        }
-        g.setColor(Color.WHITE);
-        g.fillPolygon(xPts, yPts, 4);
+        this.aluksenVari = vari;
     }
 
     public void liiku(int ruudunLeveys, int ruudunKorkeus) {
@@ -99,6 +72,10 @@ public class Alus {
         this.kiihtyyko = k;
     }
 
+    public boolean getKiihtyyko() {
+        return this.kiihtyyko;
+    }
+
     public void setKaantyyVasemmalle(boolean k) {
         this.kaantyyVasemmalle = k;
     }
@@ -130,4 +107,13 @@ public class Alus {
     public void setY(int y) {
         this.y = y;
     }
+
+    public double getKulma() {
+        return this.kulma;
+    }
+
+    public Color getVari() {
+        return this.aluksenVari;
+    }
+
 }

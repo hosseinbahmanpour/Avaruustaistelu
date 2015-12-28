@@ -1,11 +1,9 @@
 package peli.avaruustaistelu;
 
-import java.awt.*;
 import java.awt.geom.Point2D;
 
 public class Laaseri {
 
-    private final double laaserinNopeus = 10;
     private double x;
     private double y;
     private double xSuuntainenNopeus;
@@ -13,12 +11,9 @@ public class Laaseri {
     private double kulma;
     private int elinIkaaJaljella;
     private boolean aktiivinen;
-    private final double[] xPisteetAlussa = {8, 2, -2, -8, -2, 2};
-    private final double[] yPisteetAlussa = {0, 2, 2, 0, -2, -2};
-    private double laaserinSade = 4;
-    private int[] xPisteet, yPisteet;
+    private final double laaserinSade = 4;
+    private final double laaserinNopeus = 10;
     
-
     public Laaseri(double x, double y, double kulma, double aluksenXSuuntainenNopeus, double aluksenYSuuntainenNopeus, int elinIkaaJaljella) {
         this.x = x;
         this.y = y;
@@ -27,18 +22,6 @@ public class Laaseri {
         ySuuntainenNopeus = laaserinNopeus * Math.sin(kulma) + aluksenYSuuntainenNopeus;
         this.elinIkaaJaljella = elinIkaaJaljella;
         aktiivinen = true;
-        xPisteet = new int[6];
-        yPisteet = new int[6];        
-    }
-
-    public void piirra(Graphics g) {
-        for (int i = 0; i < 6; i++) {
-            xPisteet[i] = (int) (xPisteetAlussa[i] * Math.cos(kulma) - yPisteetAlussa[i] * Math.sin(kulma) + x + 0.5);
-            yPisteet[i] = (int) (xPisteetAlussa[i] * Math.sin(kulma) + yPisteetAlussa[i] * Math.cos(kulma) + y + 0.5);
-        }
-        g.setColor(Color.RED);
-        g.fillPolygon(xPisteet, yPisteet, 6);
-
     }
 
     public void liiku(int ruudunLeveys, int ruudunKorkeus) {
@@ -64,6 +47,14 @@ public class Laaseri {
         }
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
     public boolean getAktiivinen() {
         return aktiivinen;
     }
@@ -74,6 +65,10 @@ public class Laaseri {
 
     public double getSade() {
         return laaserinSade;
+    }
+    
+    public double getKulma() {
+        return this.kulma;
     }
 
 }

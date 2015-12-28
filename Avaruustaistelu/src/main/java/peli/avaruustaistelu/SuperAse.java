@@ -20,7 +20,6 @@ public class SuperAse {
 
     public void ammu() {
         if (onkoAseLadattu()) {
-            System.out.println("Piu piu");
             this.lataus = false;
         }
     }
