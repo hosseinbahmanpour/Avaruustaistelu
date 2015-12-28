@@ -1,5 +1,5 @@
 
-package peli.avaruustaistelu;
+package peli.logiikka.avaruustaistelu;
 
 
 public class SuperAse {

@@ -1,5 +1,7 @@
-package peli.avaruustaistelu;
+package peli.logiikka.avaruustaistelu;
 
+import peli.logiikka.avaruustaistelu.Alus;
+import peli.logiikka.avaruustaistelu.Laaseri;
 import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;

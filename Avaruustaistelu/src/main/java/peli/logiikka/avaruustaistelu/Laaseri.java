@@ -1,4 +1,4 @@
-package peli.avaruustaistelu;
+package peli.logiikka.avaruustaistelu;
 
 import java.awt.geom.Point2D;
 
