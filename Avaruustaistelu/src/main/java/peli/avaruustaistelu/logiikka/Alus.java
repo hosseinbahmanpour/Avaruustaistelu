@@ -1,4 +1,4 @@
-package peli.logiikka.avaruustaistelu;
+package peli.avaruustaistelu.logiikka;
 
 import java.awt.Color;
 import java.awt.geom.Point2D;
@@ -8,16 +8,16 @@ public class Alus {
     private double x;
     private double y;
     private double kulma;
-    private double kaantymisNopeus;
-    private double kiihtyvyys;
+    private final double kaantymisNopeus;
+    private final double kiihtyvyys;
     private double xSuuntainenNopeus;
     private double ySuuntainenNopeus;
-    private double ilmavastus;
-    private double sade = 12;
+    private final double ilmavastus;
+    private final double sade = 12;
     private boolean kiihtyyko;
     private boolean kaantyyVasemmalle;
     private boolean kaantyyOikealle;
-    private Color aluksenVari;
+    private final Color aluksenVari;
 
     public Alus(double x, double y, double kulma, double kaantymisNopeus,
             double kiihtyvyys, double ilmavastus, Color vari) {

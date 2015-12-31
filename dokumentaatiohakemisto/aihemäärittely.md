@@ -18,11 +18,15 @@ Alusten tulee menettää elämää jos niihin osuu luoteja tai ohjuksia. Myös a
 Pelilogiikka:
 
 Pelaaja - sisältää pelaajan tiedot (nimi, elämä)
+
 Alus - jokaisella pelaajalla oma alus, jolla x ja y koordinaatiston tiedot, säde jolla voi laskea törmäyksiä ym. Myös alusta varten tarvittava väri tallennetaan tähän, niin eri aluksilla voi olla eri värejä. Liiku metodilla alus liikkuu haluttuun suuntaan.
+
 Laaseri - ensimmäinen ehkä perus ase mikä aluksella on. Laseri luodaan aluksen nokasta kun pelaaja ampuu. Laserilla paikka ja säde. Laserilla on nopeus + aluksen antama alkunopeus. Laserilla myös elinikä, että kuolee pois tietyn ajan päästä jos ei osu mihinkään. 
 
 Peligrafiikka:
+
 Alusgrafiikka: aluksen piirtämiseen tarvittavat tiedot löytyvät täältä.
+
 Laaserigrafiikka: laaserin piirtämiseen tarvittavat tiedot löytyvät täältä.
 
 

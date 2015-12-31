@@ -1,6 +1,6 @@
-package peli.grafiikka.avaruustaistelu;
+package peli.avaruustaistelu.grafiikka;
 
-import peli.logiikka.avaruustaistelu.Alus;
+import peli.avaruustaistelu.logiikka.Alus;
 import java.awt.*;
 import java.awt.geom.Point2D;
 

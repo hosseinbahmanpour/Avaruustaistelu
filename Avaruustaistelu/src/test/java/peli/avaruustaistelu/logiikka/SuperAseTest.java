@@ -1,6 +1,6 @@
-package peli.logiikka.avaruustaistelu;
+package peli.avaruustaistelu.logiikka;
 
-import peli.logiikka.avaruustaistelu.SuperAse;
+import peli.avaruustaistelu.logiikka.SuperAse;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

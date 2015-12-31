@@ -1,6 +1,7 @@
-package peli.logiikka.avaruustaistelu;
+package peli.avaruustaistelu.logiikka;
 
-import peli.logiikka.avaruustaistelu.Pelaaja;
+import java.awt.Color;
+import peli.avaruustaistelu.logiikka.Pelaaja;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -9,10 +10,12 @@ import static org.junit.Assert.*;
 public class PelaajaTest {
     
 private Pelaaja pelaaja1;
+private Alus a;
     
     @Before
     public void setUp() {
-        this.pelaaja1 = new Pelaaja("Pelaaja 1");
+        a = new Alus(0, 0, 0, .15, .5, .98, Color.GREEN);
+        this.pelaaja1 = new Pelaaja("Pelaaja 1", a);
     }
     
     @Test
