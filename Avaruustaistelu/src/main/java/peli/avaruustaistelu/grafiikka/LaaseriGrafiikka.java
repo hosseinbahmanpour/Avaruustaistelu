@@ -4,6 +4,11 @@ import peli.avaruustaistelu.logiikka.Laaseri;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
+/**
+ * Tässä luokassa laaseri olion piirtämiseen liittyvät metodit.
+ * @author Hossein Bahmanpour
+ */
+
 public class LaaseriGrafiikka {
 
     private Laaseri laaseri;
@@ -11,12 +16,22 @@ public class LaaseriGrafiikka {
     private final double[] yPisteetAlussa = {0, 2, 2, 0, -2, -2};
     private int[] xPisteet;
     private int[] yPisteet;
+    
+    /**
+     * Konstruktori.
+     * @param laaseri piirretyn grafiikan laaseri olio.
+     */
 
     public LaaseriGrafiikka(Laaseri laaseri) {
         this.laaseri = laaseri;
         xPisteet = new int[6];
         yPisteet = new int[6];
     }
+    
+    /**
+     * laaserin piirtämisen metodi
+     * @param g Java grafiikka.
+     */
 
     public void piirra(Graphics g) {
         for (int i = 0; i < 6; i++) {

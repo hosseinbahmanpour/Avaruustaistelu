@@ -13,7 +13,7 @@ public class AlusTest {
 
     @Before
     public void setUp() {
-        a = new Alus(0, 0, 0, .15, .5, .98, Color.GREEN);
+        a = new Alus(0, 0, 0, .15, .5, .98);
     }
 
     @Test
@@ -22,7 +22,6 @@ public class AlusTest {
         assertEquals(0, a.getY(), DELTA);
         assertEquals(12, a.getSade(), DELTA);
         assertEquals(0, a.getKulma(), DELTA);
-        assertEquals(Color.GREEN, a.getVari());
     }
 
     @Test

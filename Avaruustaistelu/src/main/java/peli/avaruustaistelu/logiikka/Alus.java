@@ -3,6 +3,14 @@ package peli.avaruustaistelu.logiikka;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
+/**
+ * Alus luokkassa luodaan pelissä käytettävät alus oliot, 
+ * ja sillä on getterien ja setterien lisäksi liiku metodi 
+ * joka liikuttaa alusta x ja y koordinaatistossa.
+ * 
+ * @author Hossein Bahmanpour
+ */
+
 public class Alus {
 
     private double x;
@@ -17,10 +25,20 @@ public class Alus {
     private boolean kiihtyyko;
     private boolean kaantyyVasemmalle;
     private boolean kaantyyOikealle;
-    private final Color aluksenVari;
+    
+    /**
+     * Alus olion konstruktori.
+     * 
+     * @param x aluksen x-koordinaatiston sijainti.
+     * @param y aluksen y-koordinaatiston sijainti.
+     * @param kulma aluksen kulma x koordinaatiston suhteen.
+     * @param kaantymisNopeus kuinka nopeasti alus kääntyy.
+     * @param kiihtyvyys kuinka nopeasti aluksen vauhti kasvaa.
+     * @param ilmavastus kuinka nopeasti alus pysähtyy.
+     */
 
     public Alus(double x, double y, double kulma, double kaantymisNopeus,
-            double kiihtyvyys, double ilmavastus, Color vari) {
+            double kiihtyvyys, double ilmavastus) {
         this.x = x;
         this.y = y;
         this.kulma = kulma;
@@ -30,8 +48,15 @@ public class Alus {
         kiihtyyko = false;
         kaantyyVasemmalle = false;
         kaantyyOikealle = false;
-        this.aluksenVari = vari;
     }
+    
+    /**
+     * Metodi liikuttaa alusta perustuen booleaneihin 
+     * joita aluksella tällä hetkellä on.
+     * 
+     * @param ruudunLeveys On ohjelman kuvaruudun leveys.
+     * @param ruudunKorkeus O ohjelman kuvaruudun korkeus.
+     */
 
     public void liiku(int ruudunLeveys, int ruudunKorkeus) {
         if (kaantyyOikealle) {
@@ -63,6 +88,11 @@ public class Alus {
             y -= ruudunKorkeus;
         }
     }
+    
+    /**
+     * Metodi luo uuden Laaseri olion ja palautta sen.
+     * @return Laaseri
+     */
 
     public Laaseri ammu() {
         return new Laaseri(x, y, kulma, xSuuntainenNopeus, ySuuntainenNopeus, 50);
@@ -110,10 +140,6 @@ public class Alus {
 
     public double getKulma() {
         return this.kulma;
-    }
-
-    public Color getVari() {
-        return this.aluksenVari;
     }
 
 }

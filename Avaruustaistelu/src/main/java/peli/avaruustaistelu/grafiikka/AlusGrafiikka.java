@@ -4,6 +4,11 @@ import peli.avaruustaistelu.logiikka.Alus;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
+/**
+ * Luokassa metodit alus olion piirtämiselle.
+ * @author Hossein Bahmanpour
+ */
+
 public class AlusGrafiikka {
 
     private Alus alus;
@@ -15,15 +20,28 @@ public class AlusGrafiikka {
     private int[] yPisteet;
     private int[] xPisteetLiekille;
     private int[] yPisteetLiekille;
+    private Color vari;
 
-    public AlusGrafiikka(Alus alus) {
+    /**
+     * Konstruktori
+     * @param alus alus olio mikä halutaan piirtää.
+     * @param vari aluksen haluttu väri.
+     */
+    
+    public AlusGrafiikka(Alus alus, Color vari) {
         this.alus = alus;
         xPisteet = new int[4];
         yPisteet = new int[4];
         xPisteetLiekille = new int[3];
         yPisteetLiekille = new int[3];
+        this.vari = vari;
     }
 
+    /**
+     * Metodissa piirretään alus olio
+     * @param g java grafiikka
+     */
+    
     public void piirra(Graphics g) {
         if (alus.getKiihtyyko()) {
             for (int i = 0; i < 3; i++) {
@@ -38,7 +56,7 @@ public class AlusGrafiikka {
             xPisteet[i] = (int) (xPisteetAlussa[i] * Math.cos(alus.getKulma()) - yPisteetAlussa[i] * Math.sin(alus.getKulma()) + alus.getX() + 0.5);
             yPisteet[i] = (int) (xPisteetAlussa[i] * Math.sin(alus.getKulma()) + yPisteetAlussa[i] * Math.cos(alus.getKulma()) + alus.getY() + 0.5);
         }
-        g.setColor(alus.getVari());
+        g.setColor(vari);
         g.fillPolygon(xPisteet, yPisteet, 4);
     }
 }

@@ -15,7 +15,7 @@ public class LaaseriTest {
 
     @Before
     public void setUp() {
-        alus = new Alus(0, 0, 0, .15, .5, .98, Color.GREEN);
+        alus = new Alus(0, 0, 0, .15, .5, .98);
         l = alus.ammu();
     }
 

@@ -1,6 +1,16 @@
 package peli.avaruustaistelu.logiikka;
 
 import java.awt.geom.Point2D;
+import peli.avaruustaistelu.grafiikka.LaaseriGrafiikka;
+
+/**
+ * Laaseri luokassa luodaan laasei oliot, ja getterien
+ * ja setterien lisäksi siinä on liiku metodi minkä avulla
+ * laaseri olioiden sijaintia x ja y koordinaatistossa 
+ * muutetaan pelin aikana.
+ * 
+ * @author Hossein Bahmanpour
+ */
 
 public class Laaseri {
 
@@ -13,6 +23,20 @@ public class Laaseri {
     private boolean aktiivinen;
     private final double laaserinSade = 4;
     private final double laaserinNopeus = 10;
+    private LaaseriGrafiikka lG;
+    
+    /**
+     * Laaseri olion konstruktorissa luodaan uusi laaseri olio.
+     * 
+     * @param x laaseri olion x koordinaatti.
+     * @param y laaseri olion y koordinaatti.
+     * @param kulma laaseri olion kulma x koordinaatin suhteen.
+     * @param aluksenXSuuntainenNopeus  laaseri olion vauhti suuntaan x perustuu 
+     *                                  laaserin luoneen aluksen vauhtiin.
+     * @param aluksenYSuuntainenNopeus  laaseri olion vauhti suuntaan y perustuu 
+     *                                  laaserin luoneen aluksen vauhtiin.
+     * @param elinIkaaJaljella kuinka kauan laaseri on vielä olemassa.
+     */
     
     public Laaseri(double x, double y, double kulma, double aluksenXSuuntainenNopeus, double aluksenYSuuntainenNopeus, int elinIkaaJaljella) {
         this.x = x;
@@ -22,7 +46,15 @@ public class Laaseri {
         ySuuntainenNopeus = laaserinNopeus * Math.sin(kulma) + aluksenYSuuntainenNopeus;
         this.elinIkaaJaljella = elinIkaaJaljella;
         aktiivinen = true;
+        this.lG = new LaaseriGrafiikka(this);
     }
+    
+    /**
+     * Liiku metodi siirtää Laaseri oliota ruudulla.
+     * 
+     * @param ruudunLeveys peliruudun leveys.
+     * @param ruudunKorkeus peliruudun korkeus.
+     */
 
     public void liiku(int ruudunLeveys, int ruudunKorkeus) {
         if (aktiivinen) {
@@ -69,6 +101,10 @@ public class Laaseri {
     
     public double getKulma() {
         return this.kulma;
+    }
+
+    public LaaseriGrafiikka getlG() {
+        return lG;
     }
 
 }

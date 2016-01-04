@@ -14,7 +14,7 @@ private Alus a;
     
     @Before
     public void setUp() {
-        a = new Alus(0, 0, 0, .15, .5, .98, Color.GREEN);
+        a = new Alus(0, 0, 0, .15, .5, .98);
         this.pelaaja1 = new Pelaaja("Pelaaja 1", a);
     }
     
