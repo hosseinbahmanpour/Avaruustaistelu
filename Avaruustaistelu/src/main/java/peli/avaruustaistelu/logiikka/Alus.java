@@ -4,13 +4,12 @@ import java.awt.Color;
 import java.awt.geom.Point2D;
 
 /**
- * Alus luokkassa luodaan pelissä käytettävät alus oliot, 
- * ja sillä on getterien ja setterien lisäksi liiku metodi 
- * joka liikuttaa alusta x ja y koordinaatistossa.
- * 
+ * Alus luokkassa luodaan pelissä käytettävät alus oliot, ja sillä on getterien
+ * ja setterien lisäksi liiku metodi joka liikuttaa alusta x ja y
+ * koordinaatistossa.
+ *
  * @author Hossein Bahmanpour
  */
-
 public class Alus {
 
     private double x;
@@ -25,10 +24,10 @@ public class Alus {
     private boolean kiihtyyko;
     private boolean kaantyyVasemmalle;
     private boolean kaantyyOikealle;
-    
+
     /**
      * Alus olion konstruktori.
-     * 
+     *
      * @param x aluksen x-koordinaatiston sijainti.
      * @param y aluksen y-koordinaatiston sijainti.
      * @param kulma aluksen kulma x koordinaatiston suhteen.
@@ -36,7 +35,6 @@ public class Alus {
      * @param kiihtyvyys kuinka nopeasti aluksen vauhti kasvaa.
      * @param ilmavastus kuinka nopeasti alus pysähtyy.
      */
-
     public Alus(double x, double y, double kulma, double kaantymisNopeus,
             double kiihtyvyys, double ilmavastus) {
         this.x = x;
@@ -49,15 +47,14 @@ public class Alus {
         kaantyyVasemmalle = false;
         kaantyyOikealle = false;
     }
-    
+
     /**
-     * Metodi liikuttaa alusta perustuen booleaneihin 
-     * joita aluksella tällä hetkellä on.
-     * 
+     * Metodi liikuttaa alusta perustuen booleaneihin joita aluksella tällä
+     * hetkellä on.
+     *
      * @param ruudunLeveys On ohjelman kuvaruudun leveys.
      * @param ruudunKorkeus O ohjelman kuvaruudun korkeus.
      */
-
     public void liiku(int ruudunLeveys, int ruudunKorkeus) {
         if (kaantyyOikealle) {
             kulma += kaantymisNopeus;
@@ -88,12 +85,12 @@ public class Alus {
             y -= ruudunKorkeus;
         }
     }
-    
+
     /**
      * Metodi luo uuden Laaseri olion ja palautta sen.
+     *
      * @return Laaseri
      */
-
     public Laaseri ammu() {
         return new Laaseri(x, y, kulma, xSuuntainenNopeus, ySuuntainenNopeus, 50);
     }

@@ -16,7 +16,8 @@ public class NappaimistonKuuntelija implements KeyListener {
 
     private Pelaaja p1;
     private Pelaaja p2;
-    private ArrayList<Laaseri> laaserit;
+    private ArrayList<Laaseri> laaseritA1;
+    private ArrayList<Laaseri> laaseritA2;
 
     /**
      * konstruktori.
@@ -25,10 +26,11 @@ public class NappaimistonKuuntelija implements KeyListener {
      * @param p2 pelin toka pelaaja.
      * @param laaserit arraylista pelissä olevista lasereista.
      */
-    public NappaimistonKuuntelija(Pelaaja p1, Pelaaja p2, ArrayList<Laaseri> laaserit) {
-        this.laaserit = laaserit;
+    public NappaimistonKuuntelija(Pelaaja p1, Pelaaja p2, ArrayList<Laaseri> laaseritA1, ArrayList<Laaseri> laaseritA2) {
         this.p1 = p1;
         this.p2 = p2;
+        this.laaseritA1 = laaseritA1;
+        this.laaseritA2 = laaseritA2;
     }
 
     /**
@@ -72,11 +74,11 @@ public class NappaimistonKuuntelija implements KeyListener {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_SPACE) {
-            laaserit.add(p1.getAlus().ammu());
+            laaseritA1.add(p1.getAlus().ammu());
         }
 
         if (key == KeyEvent.VK_1) {
-            laaserit.add(p2.getAlus().ammu());
+            laaseritA2.add(p2.getAlus().ammu());
         }
 
         if (key == KeyEvent.VK_UP) {

@@ -8,11 +8,11 @@ import peli.avaruustaistelu.logiikka.Laaseri;
 import peli.avaruustaistelu.logiikka.Pelaaja;
 
 /**
- * Tämä luokka on pelini pää luokka, missä luodaan kaikki pelin oliot
- * ja array lista laaseri oliolle
+ * Tämä luokka on pelini pää luokka, missä luodaan kaikki pelin oliot ja array
+ * lista laaseri oliolle
+ *
  * @author xbax
  */
-
 public class Avaruustaistelu {
 
     private Alus a1;
@@ -23,12 +23,12 @@ public class Avaruustaistelu {
     private AlusGrafiikka a2G;
     private int leveys;
     private int korkeus;
-    private ArrayList<Laaseri> laaserit;
+    private ArrayList<Laaseri> laaseritA1;
+    private ArrayList<Laaseri> laaseritA2;
 
     /**
      * konstruktorissa kovakoodataan pelin ikkunan koko
      */
-    
     public Avaruustaistelu() {
         this.a1 = new Alus(50, 150, 0, .15, .5, .98);
         this.a2 = new Alus(500, 500, 0, .15, .5, .98);
@@ -38,7 +38,8 @@ public class Avaruustaistelu {
         this.a2G = new AlusGrafiikka(a2, Color.BLUE);
         this.leveys = 800;
         this.korkeus = 600;
-        this.laaserit = new ArrayList<>();
+        this.laaseritA1 = new ArrayList<>();
+        this.laaseritA2 = new ArrayList<>();
     }
 
     public Alus getA1() {
@@ -73,8 +74,12 @@ public class Avaruustaistelu {
         return korkeus;
     }
 
-    public ArrayList<Laaseri> getLaaserit() {
-        return laaserit;
+    public ArrayList<Laaseri> getLaaseritA1() {
+        return laaseritA1;
     }
-    
+
+    public ArrayList<Laaseri> getLaaseritA2() {
+        return laaseritA2;
+    }
+
 }

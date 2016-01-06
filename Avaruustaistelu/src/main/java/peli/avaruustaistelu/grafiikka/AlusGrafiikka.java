@@ -6,9 +6,9 @@ import java.awt.geom.Point2D;
 
 /**
  * Luokassa metodit alus olion piirtämiselle.
+ *
  * @author Hossein Bahmanpour
  */
-
 public class AlusGrafiikka {
 
     private Alus alus;
@@ -24,10 +24,10 @@ public class AlusGrafiikka {
 
     /**
      * Konstruktori
+     *
      * @param alus alus olio mikä halutaan piirtää.
      * @param vari aluksen haluttu väri.
      */
-    
     public AlusGrafiikka(Alus alus, Color vari) {
         this.alus = alus;
         xPisteet = new int[4];
@@ -39,9 +39,9 @@ public class AlusGrafiikka {
 
     /**
      * Metodissa piirretään alus olio
+     *
      * @param g java grafiikka
      */
-    
     public void piirra(Graphics g) {
         if (alus.getKiihtyyko()) {
             for (int i = 0; i < 3; i++) {
