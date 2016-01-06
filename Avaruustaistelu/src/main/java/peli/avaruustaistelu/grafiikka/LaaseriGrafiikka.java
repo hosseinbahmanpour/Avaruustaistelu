@@ -22,8 +22,8 @@ public class LaaseriGrafiikka {
      *
      * @param laaseri piirretyn grafiikan laaseri olio.
      */
-    public LaaseriGrafiikka(Laaseri laaseri) {
-        this.laaseri = laaseri;
+    public LaaseriGrafiikka(Laaseri l) {
+        this.laaseri = l;
         xPisteet = new int[6];
         yPisteet = new int[6];
     }

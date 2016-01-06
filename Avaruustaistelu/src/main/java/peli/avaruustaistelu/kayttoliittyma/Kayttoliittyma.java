@@ -14,7 +14,7 @@ import peli.avaruustaistelu.pelimoottori.Avaruustaistelu;
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
-    private Avaruustaistelu avaruustaistelu;
+    private Avaruustaistelu a;
     private Piirtoalusta piirtoalusta;
 
     /**
@@ -22,9 +22,9 @@ public class Kayttoliittyma implements Runnable {
      *
      * @param avaruustaistelu peli jolle käyttöliittymä luodaan.
      */
-    public Kayttoliittyma(Avaruustaistelu avaruustaistelu) {
-        this.avaruustaistelu = avaruustaistelu;
-        this.piirtoalusta = new Piirtoalusta(avaruustaistelu);
+    public Kayttoliittyma(Avaruustaistelu a) {
+        this.a = a;
+        this.piirtoalusta = new Piirtoalusta(a);
     }
 
     /**
@@ -34,7 +34,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Avaruustaistelu");
-        frame.setPreferredSize(new Dimension(avaruustaistelu.getLeveys(), avaruustaistelu.getKorkeus()));
+        frame.setPreferredSize(new Dimension(a.getLeveys(), a.getKorkeus()));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
         frame.pack();
@@ -48,7 +48,7 @@ public class Kayttoliittyma implements Runnable {
      */
     private void luoKomponentit(Container container) {
         container.add(piirtoalusta);
-        NappaimistonKuuntelija n = new NappaimistonKuuntelija(avaruustaistelu.getP1(), avaruustaistelu.getP2(), avaruustaistelu.getLaaseritA1(), avaruustaistelu.getLaaseritA2());
+        NappaimistonKuuntelija n = new NappaimistonKuuntelija(a.getP1(), a.getP2(), a.getLaaseritA1(), a.getLaaseritA2());
         getFrame().addKeyListener(n);
     }
 

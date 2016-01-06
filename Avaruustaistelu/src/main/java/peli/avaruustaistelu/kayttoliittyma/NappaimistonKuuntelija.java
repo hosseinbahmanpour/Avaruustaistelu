@@ -14,23 +14,23 @@ import peli.avaruustaistelu.logiikka.Pelaaja;
  */
 public class NappaimistonKuuntelija implements KeyListener {
 
-    private Pelaaja p1;
-    private Pelaaja p2;
-    private ArrayList<Laaseri> laaseritA1;
-    private ArrayList<Laaseri> laaseritA2;
+    private final Pelaaja p1;
+    private final Pelaaja p2;
+    private final ArrayList<Laaseri> lA1;
+    private final ArrayList<Laaseri> lA2;
 
     /**
-     * konstruktori.
-     *
-     * @param p1 pelin eka pelaaja.
-     * @param p2 pelin toka pelaaja.
-     * @param laaserit arraylista pelissä olevista lasereista.
+     * Konstruktori
+     * @param p1 pelaaja 1
+     * @param p2 pelaaja 2
+     * @param lA1 pelaaja 1 aluksen ampumat laaserit
+     * @param lA2 pelaaja 2 aluksen ampumat laaserit
      */
-    public NappaimistonKuuntelija(Pelaaja p1, Pelaaja p2, ArrayList<Laaseri> laaseritA1, ArrayList<Laaseri> laaseritA2) {
+    public NappaimistonKuuntelija(Pelaaja p1, Pelaaja p2, ArrayList<Laaseri> lA1, ArrayList<Laaseri> lA2) {
         this.p1 = p1;
         this.p2 = p2;
-        this.laaseritA1 = laaseritA1;
-        this.laaseritA2 = laaseritA2;
+        this.lA1 = lA1;
+        this.lA2 = lA2;
     }
 
     /**
@@ -74,11 +74,11 @@ public class NappaimistonKuuntelija implements KeyListener {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_SPACE) {
-            laaseritA1.add(p1.getAlus().ammu());
+            lA1.add(p1.getAlus().ammu());
         }
 
         if (key == KeyEvent.VK_1) {
-            laaseritA2.add(p2.getAlus().ammu());
+            lA2.add(p2.getAlus().ammu());
         }
 
         if (key == KeyEvent.VK_UP) {
@@ -102,11 +102,6 @@ public class NappaimistonKuuntelija implements KeyListener {
         }
     }
 
-    /**
-     * tässä pelaajien alukset ampuvat aseilla aina kun nappia on näppäilty.
-     *
-     * @param e näppäilty nappi.
-     */
     @Override
     public void keyTyped(KeyEvent e) {
     }

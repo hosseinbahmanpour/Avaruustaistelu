@@ -16,15 +16,15 @@ import peli.avaruustaistelu.logiikka.Laaseri;
  */
 public class Piirtoalusta extends JPanel {
 
-    private Avaruustaistelu avaruustaistelu;
+    private Avaruustaistelu a;
 
     /**
      * Konstruktori.
      *
      * @param avaruustaistelu kyseisen piirtoalustan peli.
      */
-    public Piirtoalusta(Avaruustaistelu avaruustaistelu) {
-        this.avaruustaistelu = avaruustaistelu;
+    public Piirtoalusta(Avaruustaistelu a) {
+        this.a = a;
     }
 
     /**
@@ -46,21 +46,21 @@ public class Piirtoalusta extends JPanel {
         rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         g2d.setRenderingHints(rh);
         g2d.setColor(Color.BLACK);
-        g2d.fillRect(0, 0, avaruustaistelu.getLeveys(), avaruustaistelu.getKorkeus());
+        g2d.fillRect(0, 0, a.getLeveys(), a.getKorkeus());
         g2d.setColor(Color.WHITE);
-        g2d.drawString(avaruustaistelu.getP1().getNimi() + " --- Aluksen suojakenttä: " + avaruustaistelu.getP1().getElama() + "/100", 10, 30);
-        g2d.drawString(avaruustaistelu.getP2().getNimi() + " --- Aluksen suojakenttä: " + avaruustaistelu.getP2().getElama() + "/100", 520, 30);
+        g2d.drawString(a.getP1().getNimi() + " --- Aluksen suojakenttä: " + a.getP1().getElama() + "/100", 10, 30);
+        g2d.drawString(a.getP2().getNimi() + " --- Aluksen suojakenttä: " + a.getP2().getElama() + "/100", 520, 30);
 
-        for (Laaseri l : avaruustaistelu.getLaaseritA1()) {
+        for (Laaseri l : a.getLaaseritA1()) {
             l.getlG().piirra(g);
         }
 
-        for (Laaseri l : avaruustaistelu.getLaaseritA2()) {
+        for (Laaseri l : a.getLaaseritA2()) {
             l.getlG().piirra(g);
         }
 
-        avaruustaistelu.getA1G().piirra(g2d);
-        avaruustaistelu.getA2G().piirra(g2d);
+        a.getA1G().piirra(g2d);
+        a.getA2G().piirra(g2d);
     }
 
 }

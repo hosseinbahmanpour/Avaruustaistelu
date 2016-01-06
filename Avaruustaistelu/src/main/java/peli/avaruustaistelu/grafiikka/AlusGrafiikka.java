@@ -28,13 +28,13 @@ public class AlusGrafiikka {
      * @param alus alus olio mikä halutaan piirtää.
      * @param vari aluksen haluttu väri.
      */
-    public AlusGrafiikka(Alus alus, Color vari) {
-        this.alus = alus;
+    public AlusGrafiikka(Alus a, Color c) {
+        this.alus = a;
         xPisteet = new int[4];
         yPisteet = new int[4];
         xPisteetLiekille = new int[3];
         yPisteetLiekille = new int[3];
-        this.vari = vari;
+        this.vari = c;
     }
 
     /**
