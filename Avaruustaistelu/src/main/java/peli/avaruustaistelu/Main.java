@@ -79,12 +79,12 @@ public class Main {
 
         Point2D a1Keskipiste = a.getA1().getKeskipiste();
         Point2D a2Keskipiste = a.getA2().getKeskipiste();
-        
+
         double alustenEtaisyys = a1Keskipiste.distance(a2Keskipiste);
-        
+
         if (alustenEtaisyys < a.getA1().getSade()) {
             a.getP1().ottaaDamagee(100);
-            a.getP2().ottaaDamagee(100);            
+            a.getP2().ottaaDamagee(100);
         }
 
         for (Laaseri l : a.getLaaseritA1()) {

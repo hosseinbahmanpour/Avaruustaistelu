@@ -61,28 +61,6 @@ public class Piirtoalusta extends JPanel {
 
         avaruustaistelu.getA1G().piirra(g2d);
         avaruustaistelu.getA2G().piirra(g2d);
-
-        if (avaruustaistelu.getP1().getElama() == 0 && avaruustaistelu.getP2().getElama() > 0) {
-            g2d.setColor(Color.RED);
-            g2d.fillOval(275, 225, 200, 125);
-            g2d.setColor(Color.WHITE);
-            g2d.drawString("Pelaaja 2 voitti!", 300, 300);
-        }
-
-        if (avaruustaistelu.getP2().getElama() == 0 && avaruustaistelu.getP1().getElama() > 0) {
-            g2d.setColor(Color.RED);
-            g2d.fillOval(275, 225, 200, 125);
-            g2d.setColor(Color.WHITE);
-            g2d.drawString("Pelaaja 1 voitti!", 300, 300);
-        }
-
-        if (avaruustaistelu.getP1().getElama() == 0 && avaruustaistelu.getP2().getElama() == 0) {
-            g2d.setColor(Color.RED);
-            g2d.fillOval(275, 225, 200, 125);
-            g2d.setColor(Color.WHITE);
-            g2d.drawString("Kamikaze tasapeli!!!", 300, 300);
-        }
-
     }
 
 }
