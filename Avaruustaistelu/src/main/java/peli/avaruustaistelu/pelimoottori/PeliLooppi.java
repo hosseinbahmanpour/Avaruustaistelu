@@ -1,34 +1,36 @@
 package peli.avaruustaistelu.pelimoottori;
 
+import peli.avaruustaistelu.logiikka.Avaruustaistelu;
 import peli.avaruustaistelu.kayttoliittyma.Kayttoliittyma;
 import peli.avaruustaistelu.logiikka.Laaseri;
 
 /**
- *Tässä luokassa on pelilooppi.
+ * Tässä luokassa on pelilooppi.
+ *
  * @author Hossein Bahmanpour
  */
 public class PeliLooppi {
 
-    private Avaruustaistelu a;
-    private Kayttoliittyma k;
-    private TormaysTarkistaja t;
-    
+    private final Avaruustaistelu a;
+    private final Kayttoliittyma k;
+    private final TormaysTarkistaja t;
+
     /**
      * Konstruktori
+     *
      * @param a avaruustaistelu pelin oliot
      * @param k kayttoliittyma
      */
-
     public PeliLooppi(Avaruustaistelu a, Kayttoliittyma k) {
         this.a = a;
         this.k = k;
         this.t = new TormaysTarkistaja(this.a);
     }
-    
-    /**
-     * Metodissa pelilooppi, missä oliot liikkuvat ja kutsutaan törmäystarkistajaa.
-     */
 
+    /**
+     * Metodissa pelilooppi, missä oliot liikkuvat ja kutsutaan
+     * törmäystarkistajaa.
+     */
     public void kaynnistaLooppi() {
 
         long aloitusAika = System.currentTimeMillis();
@@ -37,24 +39,24 @@ public class PeliLooppi {
 
         while (a.getP1().getElama() > 0 && a.getP2().getElama() > 0) {
 
-            a.getA1().liiku(a.getLeveys(), a.getKorkeus());
-            a.getA2().liiku(a.getLeveys(), a.getKorkeus());
+            a.getPelaaja1Alus().liiku(a.getLeveys(), a.getKorkeus());
+            a.getPelaaja2Alus().liiku(a.getLeveys(), a.getKorkeus());
 
-            for (Laaseri l : a.getLaaseritA1()) {
+            for (Laaseri l : a.getPelaaja1Laaserit()) {
                 l.liiku(a.getLeveys(), a.getKorkeus());
             }
-            for (int i = 0; i < a.getLaaseritA1().size(); i++) {
-                if (!a.getLaaseritA1().get(i).getAktiivinen()) {
-                    a.getLaaseritA1().remove(i);
+            for (int i = 0; i < a.getPelaaja1Laaserit().size(); i++) {
+                if (!a.getPelaaja1Laaserit().get(i).getAktiivinen()) {
+                    a.getPelaaja1Laaserit().remove(i);
                 }
             }
 
-            for (Laaseri l : a.getLaaseritA2()) {
+            for (Laaseri l : a.getPelaaja2Laaserit()) {
                 l.liiku(a.getLeveys(), a.getKorkeus());
             }
-            for (int i = 0; i < a.getLaaseritA2().size(); i++) {
-                if (!a.getLaaseritA2().get(i).getAktiivinen()) {
-                    a.getLaaseritA2().remove(i);
+            for (int i = 0; i < a.getPelaaja2Laaserit().size(); i++) {
+                if (!a.getPelaaja2Laaserit().get(i).getAktiivinen()) {
+                    a.getPelaaja2Laaserit().remove(i);
                 }
             }
 

@@ -2,7 +2,6 @@ package peli.avaruustaistelu.grafiikka;
 
 import peli.avaruustaistelu.logiikka.Alus;
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 /**
  * Luokassa metodit alus olion piirtämiselle.
@@ -25,8 +24,8 @@ public class AlusGrafiikka {
     /**
      * Konstruktori
      *
-     * @param alus alus olio mikä halutaan piirtää.
-     * @param vari aluksen haluttu väri.
+     * @param a alus olio mikä halutaan piirtää.
+     * @param c aluksen haluttu väri.
      */
     public AlusGrafiikka(Alus a, Color c) {
         this.alus = a;

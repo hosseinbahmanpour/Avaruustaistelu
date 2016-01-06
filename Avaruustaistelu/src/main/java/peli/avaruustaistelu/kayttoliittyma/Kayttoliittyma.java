@@ -4,7 +4,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-import peli.avaruustaistelu.pelimoottori.Avaruustaistelu;
+import peli.avaruustaistelu.logiikka.Avaruustaistelu;
 
 /**
  * Käyttöliittymä luokassa luodaan graafinen käyttöliittymä pelille.
@@ -14,13 +14,13 @@ import peli.avaruustaistelu.pelimoottori.Avaruustaistelu;
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
-    private Avaruustaistelu a;
-    private Piirtoalusta piirtoalusta;
+    private final Avaruustaistelu a;
+    private final Piirtoalusta piirtoalusta;
 
     /**
      * Konstruktori.
      *
-     * @param avaruustaistelu peli jolle käyttöliittymä luodaan.
+     * @param a peli jolle käyttöliittymä luodaan.
      */
     public Kayttoliittyma(Avaruustaistelu a) {
         this.a = a;
@@ -48,7 +48,7 @@ public class Kayttoliittyma implements Runnable {
      */
     private void luoKomponentit(Container container) {
         container.add(piirtoalusta);
-        NappaimistonKuuntelija n = new NappaimistonKuuntelija(a.getP1(), a.getP2(), a.getLaaseritA1(), a.getLaaseritA2());
+        NappaimistonKuuntelija n = new NappaimistonKuuntelija(a.getP1(), a.getP2(), a.getPelaaja1Laaserit(), a.getPelaaja2Laaserit());
         getFrame().addKeyListener(n);
     }
 

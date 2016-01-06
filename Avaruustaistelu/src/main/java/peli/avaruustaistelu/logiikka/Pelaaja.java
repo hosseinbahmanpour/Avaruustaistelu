@@ -7,9 +7,9 @@ package peli.avaruustaistelu.logiikka;
  */
 public class Pelaaja {
 
-    private String nimi;
+    private final String nimi;
     private int elama;
-    private Alus alus;
+    private final Alus alus;
 
     /**
      * Konstruktorissa luodaan Pelaaja olio ja elämäksi asetetaan 100.
@@ -26,7 +26,7 @@ public class Pelaaja {
     /**
      * vähentää pelaajan elämää tietyn verran.
      *
-     * @param paljonko
+     * @param paljonko kuinka paljon vähennetään elämästä
      */
     public void ottaaDamagee(int paljonko) {
         this.elama -= paljonko;

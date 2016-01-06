@@ -2,7 +2,6 @@ package peli.avaruustaistelu.grafiikka;
 
 import peli.avaruustaistelu.logiikka.Laaseri;
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 /**
  * Tässä luokassa laaseri olion piirtämiseen liittyvät metodit.
@@ -20,7 +19,7 @@ public class LaaseriGrafiikka {
     /**
      * Konstruktori.
      *
-     * @param laaseri piirretyn grafiikan laaseri olio.
+     * @param l piirretyn grafiikan laaseri olio.
      */
     public LaaseriGrafiikka(Laaseri l) {
         this.laaseri = l;

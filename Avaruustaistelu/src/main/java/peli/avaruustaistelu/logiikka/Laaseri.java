@@ -14,14 +14,14 @@ public class Laaseri {
 
     private double x;
     private double y;
-    private double xSuuntainenNopeus;
-    private double ySuuntainenNopeus;
-    private double kulma;
+    private final double xSuuntainenNopeus;
+    private final double ySuuntainenNopeus;
+    private final double kulma;
     private int elinIkaaJaljella;
     private boolean aktiivinen;
     private final double laaserinSade = 4;
     private final double laaserinNopeus = 10;
-    private LaaseriGrafiikka lG;
+    private final LaaseriGrafiikka lG;
 
     /**
      * Laaseri olion konstruktorissa luodaan uusi laaseri olio.

@@ -2,7 +2,7 @@ package peli.avaruustaistelu;
 
 
 import peli.avaruustaistelu.pelimoottori.PeliLooppi;
-import peli.avaruustaistelu.pelimoottori.Avaruustaistelu;
+import peli.avaruustaistelu.logiikka.Avaruustaistelu;
 import javax.swing.SwingUtilities;
 import peli.avaruustaistelu.kayttoliittyma.Kayttoliittyma;
 
@@ -17,7 +17,7 @@ public class Main {
     /**
      * Luodaan peli ja käynnistetään pelilooppi
      *
-     * @param args
+     * @param args ...
      */
     public static void main(String[] args) {
         Avaruustaistelu a = new Avaruustaistelu();

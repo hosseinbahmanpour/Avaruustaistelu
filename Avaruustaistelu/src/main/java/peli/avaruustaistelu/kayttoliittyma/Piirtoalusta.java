@@ -5,8 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JPanel;
-import peli.avaruustaistelu.pelimoottori.Avaruustaistelu;
-import peli.avaruustaistelu.grafiikka.LaaseriGrafiikka;
+import peli.avaruustaistelu.logiikka.Avaruustaistelu;
 import peli.avaruustaistelu.logiikka.Laaseri;
 
 /**
@@ -16,12 +15,12 @@ import peli.avaruustaistelu.logiikka.Laaseri;
  */
 public class Piirtoalusta extends JPanel {
 
-    private Avaruustaistelu a;
+    private final Avaruustaistelu a;
 
     /**
      * Konstruktori.
      *
-     * @param avaruustaistelu kyseisen piirtoalustan peli.
+     * @param a kyseisen piirtoalustan peli.
      */
     public Piirtoalusta(Avaruustaistelu a) {
         this.a = a;
@@ -51,16 +50,16 @@ public class Piirtoalusta extends JPanel {
         g2d.drawString(a.getP1().getNimi() + " --- Aluksen suojakenttä: " + a.getP1().getElama() + "/100", 10, 30);
         g2d.drawString(a.getP2().getNimi() + " --- Aluksen suojakenttä: " + a.getP2().getElama() + "/100", 520, 30);
 
-        for (Laaseri l : a.getLaaseritA1()) {
+        for (Laaseri l : a.getPelaaja1Laaserit()) {
             l.getlG().piirra(g);
         }
 
-        for (Laaseri l : a.getLaaseritA2()) {
+        for (Laaseri l : a.getPelaaja2Laaserit()) {
             l.getlG().piirra(g);
         }
 
-        a.getA1G().piirra(g2d);
-        a.getA2G().piirra(g2d);
+        a.getPelaaja1AlusGrafiikka().piirra(g2d);
+        a.getPelaaja2AlusGrafiikka().piirra(g2d);
     }
 
 }

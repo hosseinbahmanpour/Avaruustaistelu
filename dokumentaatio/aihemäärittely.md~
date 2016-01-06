@@ -4,7 +4,7 @@
 
 *Kaikkien käyttäjien toiminnot:* Oman avaruusaluksen ohjaaminen näppäimistöllä, ja ohjusten ampuminen.
 
-Tavoitteet:
+****Tavoitteet****
 
 Pelaajat ohjaavat omia avaruusaluksia, joita voi lentää ympäriinsä 2D ympäristössä. Pelaajat ampuvat - mahdollisesti useita eri aseita - ja yrittävät tappaa toisiaan.
 
@@ -15,8 +15,10 @@ Alusten tulee menettää elämää jos niihin osuu luoteja tai ohjuksia. Myös a
 
 ***** Luokat *****
 
-Pelilogiikka paketti:
 
+***********************
+*Pelilogiikka paketti:|
+***********************
 Pelaaja - sisältää pelaajan tiedot (nimi, elämä)
 
 Alus - jokaisella pelaajalla oma alus, jolla x ja y koordinaatiston tiedot, säde jolla voi laskea törmäyksiä ym. Myös alusta varten tarvittava väri tallennetaan tähän, niin eri aluksilla voi olla eri värejä. Liiku metodilla alus liikkuu haluttuun suuntaan.
@@ -25,22 +27,25 @@ Laaseri - ensimmäinen ehkä perus ase mikä aluksella on. Laseri luodaan alukse
 
 SuperAse - ei vielä täysin valmis.
 
-Peligrafiikka paketti:
-
+************************
+|Peligrafiikka paketti:|
+************************
 Alusgrafiikka - aluksen piirtämiseen tarvittavat tiedot löytyvät täältä.
 
 Laaserigrafiikka - laaserin piirtämiseen tarvittavat tiedot löytyvät täältä.
 
-Pelimoottori paketti:
-
+***********************
+|Pelimoottori paketti:|
+***********************
 Avaruustaistelu - luokassa luodaan pelaaja, alus ja alusgrafiikka kahdesti, pelin kahdelle pelaajalle.
 
 PeliLooppi - peliloopissa liikutetaan alukset ja laaserit jota pelissä on ja kutsutaan tormaystarkistajan tarkista metodia, ja sen jälkeen kaikki piirretään, ja odotetaan että on kulunut tarpeeksi aikaa jotta saavutetaan haluttu frames per second, jonka jälkeen palataan loopin alkuun.
 
-TormaysTarkistaja - tässä luokassa on metodi jossa käydään läpi kaikki pelissä olevat laaserit ja alukset ja tarkistetaan ovatko ne törmänneet
+TormaysTarkistaja - tässä luokassa on metodi jossa käydään läpi kaikki pelissä olevat laaserit ja alukset ja tarkistetaan ovatko ne törmänneet.
 
-Kayttoliittyma paketti:
-
+*************************
+|Kayttoliittyma paketti:|
+*************************
 Kayttoliittyma - luokassa luodaan swing utilities pohjainen graafinen käyttöliittymä pelille.
 
 NappaimistonKuuntelija - luokassa kuunnellaan mitä näppäimiä pelin aikana painetaan, ja tehdään haluttuja toimintoja perustuen painettuihin nappeihin.

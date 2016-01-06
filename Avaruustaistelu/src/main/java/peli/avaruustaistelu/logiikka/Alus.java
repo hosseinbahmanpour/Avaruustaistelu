@@ -1,6 +1,5 @@
 package peli.avaruustaistelu.logiikka;
 
-import java.awt.Color;
 import java.awt.geom.Point2D;
 
 /**
