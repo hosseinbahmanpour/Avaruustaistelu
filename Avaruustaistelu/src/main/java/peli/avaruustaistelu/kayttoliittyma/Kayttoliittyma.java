@@ -4,7 +4,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-import peli.avaruustaistelu.Avaruustaistelu;
+import peli.avaruustaistelu.pelimoottori.Avaruustaistelu;
 
 /**
  * Käyttöliittymä luokassa luodaan graafinen käyttöliittymä pelille.

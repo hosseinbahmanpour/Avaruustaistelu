@@ -1,6 +1,8 @@
 package peli.avaruustaistelu;
 
 
+import peli.avaruustaistelu.pelimoottori.PeliLooppi;
+import peli.avaruustaistelu.pelimoottori.Avaruustaistelu;
 import javax.swing.SwingUtilities;
 import peli.avaruustaistelu.kayttoliittyma.Kayttoliittyma;
 

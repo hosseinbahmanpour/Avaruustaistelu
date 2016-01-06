@@ -1,4 +1,4 @@
-package peli.avaruustaistelu;
+package peli.avaruustaistelu.pelimoottori;
 
 import peli.avaruustaistelu.kayttoliittyma.Kayttoliittyma;
 import peli.avaruustaistelu.logiikka.Laaseri;

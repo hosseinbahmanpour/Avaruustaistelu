@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JPanel;
-import peli.avaruustaistelu.Avaruustaistelu;
+import peli.avaruustaistelu.pelimoottori.Avaruustaistelu;
 import peli.avaruustaistelu.grafiikka.LaaseriGrafiikka;
 import peli.avaruustaistelu.logiikka.Laaseri;
 

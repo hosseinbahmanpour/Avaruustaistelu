@@ -1,4 +1,4 @@
-package peli.avaruustaistelu;
+package peli.avaruustaistelu.pelimoottori;
 
 import java.awt.Color;
 import java.util.ArrayList;
