@@ -21,7 +21,9 @@ public class Avaruustaistelu {
     private final int leveys;
     private final int korkeus;
     private final ArrayList<Laaseri> pelaaja1Laaserit;
-    private final ArrayList<Laaseri> pelaaja2Laaserit;
+    private final ArrayList<Laaseri> pelaaja2Laaserit;    
+    private final ArrayList<SuperAse> pelaaja1SuperAse;
+    private final ArrayList<SuperAse> pelaaja2SuperAse;
 
     /**
      * konstruktorissa kovakoodataan pelin ikkunan koko
@@ -37,6 +39,8 @@ public class Avaruustaistelu {
         this.korkeus = 600;
         this.pelaaja1Laaserit = new ArrayList<>();
         this.pelaaja2Laaserit = new ArrayList<>();
+        this.pelaaja1SuperAse = new ArrayList<>();
+        this.pelaaja2SuperAse = new ArrayList<>();
     }
 
     public Alus getPelaaja1Alus() {
@@ -79,4 +83,12 @@ public class Avaruustaistelu {
         return pelaaja2Laaserit;
     }
 
+    public ArrayList<SuperAse> getPelaaja1SuperAse() {
+        return pelaaja1SuperAse;
+    }
+
+    public ArrayList<SuperAse> getPelaaja2SuperAse() {
+        return pelaaja2SuperAse;
+    }
+ 
 }

@@ -4,6 +4,7 @@ import peli.avaruustaistelu.logiikka.Avaruustaistelu;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import peli.avaruustaistelu.logiikka.Laaseri;
+import peli.avaruustaistelu.logiikka.SuperAse;
 
 /**
  * Luokka tarkistaa olioiden törmäämiset x y koordinaatistolla
@@ -23,8 +24,11 @@ public class TormaysTarkistaja {
      */
     public void tarkistaTormaykset() {
 
-        ArrayList<Laaseri> poistettavat1 = new ArrayList<>();
-        ArrayList<Laaseri> poistettavat2 = new ArrayList<>();
+        ArrayList<Laaseri> poistettavatLaaseritP1 = new ArrayList<>();
+        ArrayList<Laaseri> poistettavatLaaseritP2 = new ArrayList<>();
+
+        ArrayList<SuperAse> poistettavatSuperAseetP1 = new ArrayList<>();
+        ArrayList<SuperAse> poistettavatSuperAseetP2 = new ArrayList<>();
 
         Point2D a1Keskipiste = a.getPelaaja1Alus().getKeskipiste();
         Point2D a2Keskipiste = a.getPelaaja2Alus().getKeskipiste();
@@ -32,38 +36,72 @@ public class TormaysTarkistaja {
         double alustenEtaisyys = a1Keskipiste.distance(a2Keskipiste);
 
         if (alustenEtaisyys < a.getPelaaja1Alus().getSade()) {
-            a.getP1().ottaaDamagee(100);
-            a.getP2().ottaaDamagee(100);
+            a.getPelaaja1Alus().setxSuuntainenNopeus(a.getPelaaja2Alus().getxSuuntainenNopeus() - a.getPelaaja1Alus().getxSuuntainenNopeus());
+            a.getPelaaja1Alus().setySuuntainenNopeus(a.getPelaaja2Alus().getySuuntainenNopeus() - a.getPelaaja1Alus().getySuuntainenNopeus());
+            a.getPelaaja2Alus().setxSuuntainenNopeus(a.getPelaaja1Alus().getxSuuntainenNopeus() - a.getPelaaja2Alus().getxSuuntainenNopeus());
+            a.getPelaaja2Alus().setySuuntainenNopeus(a.getPelaaja1Alus().getySuuntainenNopeus() - a.getPelaaja2Alus().getySuuntainenNopeus());
+            a.getP1().ottaaDamagee(5);
+            a.getP2().ottaaDamagee(5);
         }
 
         for (Laaseri l : a.getPelaaja1Laaserit()) {
 
-            Point2D laaserinKeskipiste = l.getKeskipiste();
-            double etaisyysA2 = laaserinKeskipiste.distance(a2Keskipiste);
+            double etaisyysA2 = l.getKeskipiste().distance(a2Keskipiste);
 
             if (etaisyysA2 <= (l.getSade() + a.getPelaaja2Alus().getSade())) {
                 a.getP2().ottaaDamagee(1);
-                poistettavat1.add(l);
+                poistettavatLaaseritP1.add(l);
             }
         }
 
         for (Laaseri l : a.getPelaaja2Laaserit()) {
 
-            Point2D laaserinKeskipiste = l.getKeskipiste();
-            double etaisyysA1 = laaserinKeskipiste.distance(a1Keskipiste);
+            double etaisyysA1 = l.getKeskipiste().distance(a1Keskipiste);
 
             if (etaisyysA1 <= (l.getSade() + a.getPelaaja1Alus().getSade())) {
                 a.getP1().ottaaDamagee(1);
-                poistettavat2.add(l);
+                poistettavatLaaseritP2.add(l);
             }
         }
 
-        for (Laaseri l : poistettavat1) {
+        for (Laaseri l : poistettavatLaaseritP1) {
             a.getPelaaja1Laaserit().remove(l);
         }
 
-        for (Laaseri l : poistettavat2) {
+        for (Laaseri l : poistettavatLaaseritP2) {
             a.getPelaaja2Laaserit().remove(l);
+        }
+
+        for (SuperAse s : a.getPelaaja1SuperAse()) {
+
+            double etaisyysA2 = s.getKeskipiste().distance(a2Keskipiste);
+
+            if (etaisyysA2 <= (s.getSade() + a.getPelaaja2Alus().getSade())) {
+                a.getPelaaja2Alus().setxSuuntainenNopeus(s.getxSuuntainenNopeus() / 2 - a.getPelaaja2Alus().getxSuuntainenNopeus());
+                a.getPelaaja2Alus().setySuuntainenNopeus(s.getySuuntainenNopeus() / 2 - a.getPelaaja2Alus().getySuuntainenNopeus());
+                a.getP2().ottaaDamagee(20);
+                poistettavatSuperAseetP1.add(s);
+            }
+        }
+
+        for (SuperAse s : a.getPelaaja2SuperAse()) {
+
+            double etaisyysA1 = s.getKeskipiste().distance(a1Keskipiste);
+
+            if (etaisyysA1 <= (s.getSade() + a.getPelaaja1Alus().getSade())) {
+                a.getPelaaja1Alus().setxSuuntainenNopeus(s.getxSuuntainenNopeus() / 2 - a.getPelaaja1Alus().getxSuuntainenNopeus());
+                a.getPelaaja1Alus().setySuuntainenNopeus(s.getySuuntainenNopeus() / 2 - a.getPelaaja1Alus().getySuuntainenNopeus());
+                a.getP1().ottaaDamagee(20);
+                poistettavatSuperAseetP2.add(s);
+            }
+        }
+
+        for (SuperAse s : poistettavatSuperAseetP1) {
+            a.getPelaaja1SuperAse().remove(s);
+        }
+
+        for (SuperAse s : poistettavatSuperAseetP2) {
+            a.getPelaaja2SuperAse().remove(s);
         }
     }
 

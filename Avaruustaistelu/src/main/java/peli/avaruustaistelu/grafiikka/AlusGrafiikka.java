@@ -10,7 +10,7 @@ import java.awt.*;
  */
 public class AlusGrafiikka {
 
-    private Alus alus;
+    private final Alus alus;
     private final double[] xPisteetAlussa = {-15, -10, -15, 15};
     private final double[] yPisteetAlussa = {10, 0, -10, 0};
     private final double[] xPisteetAlussaLiekille = {-10, -25, -10};

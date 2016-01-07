@@ -1,8 +1,10 @@
 package peli.avaruustaistelu.pelimoottori;
 
+import java.util.Iterator;
 import peli.avaruustaistelu.logiikka.Avaruustaistelu;
 import peli.avaruustaistelu.kayttoliittyma.Kayttoliittyma;
 import peli.avaruustaistelu.logiikka.Laaseri;
+import peli.avaruustaistelu.logiikka.SuperAse;
 
 /**
  * Tässä luokassa on pelilooppi.
@@ -38,6 +40,9 @@ public class PeliLooppi {
         long haluttuAika = 1000 / FPS;
 
         while (a.getP1().getElama() > 0 && a.getP2().getElama() > 0) {
+            
+            a.getP1().lataa();
+            a.getP2().lataa();
 
             a.getPelaaja1Alus().liiku(a.getLeveys(), a.getKorkeus());
             a.getPelaaja2Alus().liiku(a.getLeveys(), a.getKorkeus());
@@ -45,18 +50,40 @@ public class PeliLooppi {
             for (Laaseri l : a.getPelaaja1Laaserit()) {
                 l.liiku(a.getLeveys(), a.getKorkeus());
             }
-            for (int i = 0; i < a.getPelaaja1Laaserit().size(); i++) {
-                if (!a.getPelaaja1Laaserit().get(i).getAktiivinen()) {
-                    a.getPelaaja1Laaserit().remove(i);
+            Iterator<Laaseri> iteraattoriL1 = a.getPelaaja1Laaserit().iterator();
+            while (iteraattoriL1.hasNext()) {
+                if (!iteraattoriL1.next().getAktiivinen()) {
+                    iteraattoriL1.remove();
                 }
             }
 
             for (Laaseri l : a.getPelaaja2Laaserit()) {
                 l.liiku(a.getLeveys(), a.getKorkeus());
             }
-            for (int i = 0; i < a.getPelaaja2Laaserit().size(); i++) {
-                if (!a.getPelaaja2Laaserit().get(i).getAktiivinen()) {
-                    a.getPelaaja2Laaserit().remove(i);
+            Iterator<Laaseri> iteraattoriL2 = a.getPelaaja2Laaserit().iterator();
+            while (iteraattoriL2.hasNext()) {
+                if (!iteraattoriL2.next().getAktiivinen()) {
+                    iteraattoriL2.remove();
+                }
+            }
+
+            for (SuperAse s : a.getPelaaja1SuperAse()) {
+                s.liiku(a.getLeveys(), a.getKorkeus());
+            }
+            Iterator<SuperAse> iteraattoriS1 = a.getPelaaja1SuperAse().iterator();
+            while (iteraattoriS1.hasNext()) {
+                if (!iteraattoriS1.next().getAktiivinen()) {
+                    iteraattoriS1.remove();
+                }
+            }
+
+            for (SuperAse s : a.getPelaaja2SuperAse()) {
+                s.liiku(a.getLeveys(), a.getKorkeus());
+            }
+            Iterator<SuperAse> iteraattoriS2 = a.getPelaaja2SuperAse().iterator();
+            while (iteraattoriS2.hasNext()) {
+                if (!iteraattoriS2.next().getAktiivinen()) {
+                    iteraattoriS2.remove();
                 }
             }
 

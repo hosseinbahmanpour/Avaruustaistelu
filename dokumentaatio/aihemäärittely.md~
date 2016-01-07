@@ -15,10 +15,16 @@ Alusten tulee menettää elämää jos niihin osuu luoteja tai ohjuksia. Myös a
 
 ***** Luokat *****
 
+******
+|Main|
+******
+Main luokassa luodaan uusi Avaruustaistelu pelilogiikka ja käyttöliittymä, ja annetaan ne peliloopille, ja käynnistetään looppi.
 
 ***********************
 *Pelilogiikka paketti:|
 ***********************
+Avaruustaistelu - luokassa luodaan pelaaja, alus ja alusgrafiikka kahdesti, pelin kahdelle pelaajalle, eli koko pelin logiikka yhtyy tässä luokassa.
+
 Pelaaja - sisältää pelaajan tiedot (nimi, elämä)
 
 Alus - jokaisella pelaajalla oma alus, jolla x ja y koordinaatiston tiedot, säde jolla voi laskea törmäyksiä ym. Myös alusta varten tarvittava väri tallennetaan tähän, niin eri aluksilla voi olla eri värejä. Liiku metodilla alus liikkuu haluttuun suuntaan.
@@ -37,8 +43,6 @@ Laaserigrafiikka - laaserin piirtämiseen tarvittavat tiedot löytyvät täält�
 ***********************
 |Pelimoottori paketti:|
 ***********************
-Avaruustaistelu - luokassa luodaan pelaaja, alus ja alusgrafiikka kahdesti, pelin kahdelle pelaajalle.
-
 PeliLooppi - peliloopissa liikutetaan alukset ja laaserit jota pelissä on ja kutsutaan tormaystarkistajan tarkista metodia, ja sen jälkeen kaikki piirretään, ja odotetaan että on kulunut tarpeeksi aikaa jotta saavutetaan haluttu frames per second, jonka jälkeen palataan loopin alkuun.
 
 TormaysTarkistaja - tässä luokassa on metodi jossa käydään läpi kaikki pelissä olevat laaserit ja alukset ja tarkistetaan ovatko ne törmänneet.

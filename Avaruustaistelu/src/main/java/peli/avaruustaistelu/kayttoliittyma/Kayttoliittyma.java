@@ -48,7 +48,7 @@ public class Kayttoliittyma implements Runnable {
      */
     private void luoKomponentit(Container container) {
         container.add(piirtoalusta);
-        NappaimistonKuuntelija n = new NappaimistonKuuntelija(a.getP1(), a.getP2(), a.getPelaaja1Laaserit(), a.getPelaaja2Laaserit());
+        NappaimistonKuuntelija n = new NappaimistonKuuntelija(a.getP1(), a.getP2(), a.getPelaaja1Laaserit(), a.getPelaaja2Laaserit(), a.getPelaaja1SuperAse(), a.getPelaaja2SuperAse());
         getFrame().addKeyListener(n);
     }
 

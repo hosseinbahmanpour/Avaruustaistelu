@@ -85,15 +85,6 @@ public class Alus {
         }
     }
 
-    /**
-     * Metodi luo uuden Laaseri olion ja palautta sen.
-     *
-     * @return Laaseri
-     */
-    public Laaseri ammu() {
-        return new Laaseri(x, y, kulma, xSuuntainenNopeus, ySuuntainenNopeus, 50);
-    }
-
     public void setKiihtyyko(boolean k) {
         this.kiihtyyko = k;
     }
@@ -136,6 +127,22 @@ public class Alus {
 
     public double getKulma() {
         return this.kulma;
+    }
+
+    public double getxSuuntainenNopeus() {
+        return xSuuntainenNopeus;
+    }
+
+    public void setxSuuntainenNopeus(double xSuuntainenNopeus) {
+        this.xSuuntainenNopeus = xSuuntainenNopeus;
+    }
+
+    public double getySuuntainenNopeus() {
+        return ySuuntainenNopeus;
+    }
+
+    public void setySuuntainenNopeus(double ySuuntainenNopeus) {
+        this.ySuuntainenNopeus = ySuuntainenNopeus;
     }
 
 }

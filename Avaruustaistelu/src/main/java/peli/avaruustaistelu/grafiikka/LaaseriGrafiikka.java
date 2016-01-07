@@ -10,7 +10,7 @@ import java.awt.*;
  */
 public class LaaseriGrafiikka {
 
-    private Laaseri laaseri;
+    private final Laaseri laaseri;
     private final double[] xPisteetAlussa = {8, 2, -2, -8, -2, 2};
     private final double[] yPisteetAlussa = {0, 2, 2, 0, -2, -2};
     private int[] xPisteet;

@@ -21,7 +21,7 @@ public class Laaseri {
     private boolean aktiivinen;
     private final double laaserinSade = 4;
     private final double laaserinNopeus = 10;
-    private final LaaseriGrafiikka lG;
+    private final LaaseriGrafiikka laaseriGrafiikka;
 
     /**
      * Laaseri olion konstruktorissa luodaan uusi laaseri olio.
@@ -43,7 +43,7 @@ public class Laaseri {
         ySuuntainenNopeus = laaserinNopeus * Math.sin(kulma) + aluksenYSuuntainenNopeus;
         this.elinIkaaJaljella = elinIkaaJaljella;
         aktiivinen = true;
-        this.lG = new LaaseriGrafiikka(this);
+        this.laaseriGrafiikka = new LaaseriGrafiikka(this);
     }
 
     /**
@@ -99,8 +99,8 @@ public class Laaseri {
         return this.kulma;
     }
 
-    public LaaseriGrafiikka getlG() {
-        return lG;
+    public LaaseriGrafiikka getLaaseriGrafiikka() {
+        return laaseriGrafiikka;
     }
 
 }

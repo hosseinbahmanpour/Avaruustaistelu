@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import peli.avaruustaistelu.logiikka.Laaseri;
 import peli.avaruustaistelu.logiikka.Pelaaja;
+import peli.avaruustaistelu.logiikka.SuperAse;
 
 /**
  * Tässä luokassa kuunnellaan näppäimistöä ja muutetaan pelaajien alusten
@@ -18,19 +19,26 @@ public class NappaimistonKuuntelija implements KeyListener {
     private final Pelaaja p2;
     private final ArrayList<Laaseri> lA1;
     private final ArrayList<Laaseri> lA2;
+    private final ArrayList<SuperAse> sA1;
+    private final ArrayList<SuperAse> sA2;
 
     /**
      * Konstruktori
+     *
      * @param p1 pelaaja 1
      * @param p2 pelaaja 2
-     * @param lA1 pelaaja 1 aluksen ampumat laaserit
-     * @param lA2 pelaaja 2 aluksen ampumat laaserit
+     * @param lA1 pelaaja 1 ampumat laaserit
+     * @param lA2 pelaaja 2 ampumat laaserit
+     * @param sA1 pelaaja 1 ampumat super aseet
+     * @param sA2 pelaaja 2 ampumat super aseet
      */
-    public NappaimistonKuuntelija(Pelaaja p1, Pelaaja p2, ArrayList<Laaseri> lA1, ArrayList<Laaseri> lA2) {
+    public NappaimistonKuuntelija(Pelaaja p1, Pelaaja p2, ArrayList<Laaseri> lA1, ArrayList<Laaseri> lA2, ArrayList<SuperAse> sA1, ArrayList<SuperAse> sA2) {
         this.p1 = p1;
         this.p2 = p2;
         this.lA1 = lA1;
         this.lA2 = lA2;
+        this.sA1 = sA1;
+        this.sA2 = sA2;
     }
 
     /**
@@ -74,11 +82,20 @@ public class NappaimistonKuuntelija implements KeyListener {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_SPACE) {
-            lA1.add(p1.getAlus().ammu());
+            lA1.add(p1.ammu());
         }
-
         if (key == KeyEvent.VK_1) {
-            lA2.add(p2.getAlus().ammu());
+            lA2.add(p2.ammu());
+        }
+        if (key == KeyEvent.VK_DOWN) {
+            if (p1.getLataus() == 100) {
+                sA1.add(p1.ammuSuperAse());
+            }
+        }
+        if (key == KeyEvent.VK_S) {
+            if (p2.getLataus() == 100) {
+                sA2.add(p2.ammuSuperAse());
+            }
         }
 
         if (key == KeyEvent.VK_UP) {

@@ -1,22 +1,21 @@
 package peli.avaruustaistelu.logiikka;
 
-import peli.avaruustaistelu.logiikka.Alus;
-import peli.avaruustaistelu.logiikka.Laaseri;
-import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LaaseriTest {
 
-    private Alus alus;
+    private Alus a;
+    private Pelaaja p;
     private Laaseri l;
     private final double DELTA = 1e-15;
 
     @Before
     public void setUp() {
-        alus = new Alus(0, 0, 0, .15, .5, .98);
-        l = alus.ammu();
+        a = new Alus(0, 0, 0, .15, .5, .98);
+        p = new Pelaaja ("Pelaaja 1", a);
+        l = p.ammu();
     }
 
     @Test
