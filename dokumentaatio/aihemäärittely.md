@@ -15,7 +15,7 @@ Alusten tulee menettää elämää jos niihin osuu luoteja tai fotoneja. Myös a
 Törmäyksissä fotonin tai toisen aluksen kanssa alus saa vauhtia törmäyksen antamaan suuntaan.
 
 
-***** Luokat *****
+***** Rakennekuvaus *****
 
 ******
 |Main|
@@ -35,6 +35,8 @@ Laaseri - ensimmäinen ehkä perus ase mikä aluksella on. Laseri luodaan alukse
 
 SuperAse - kuten laaseri, mutta pitää odottaa että se on ladannut että voi ampua.
 
+Rajahdys - luokassa on rajahdysolion tiedot kuten x ja y sijainti, ja metodit joilla räjähdys laajenee ja kauanko se on elossa eli pelissä.
+
 ************************
 |Peligrafiikka paketti:|
 ************************
@@ -43,6 +45,8 @@ Alusgrafiikka - aluksen piirtämiseen tarvittavat tiedot löytyvät täältä.
 Laaserigrafiikka - laaserin piirtämiseen tarvittavat tiedot löytyvät täältä.
 
 SuperAseGrafiikka - superaseen piirtämiseen tarvittavat tiedot löytyvät täältä.
+
+RajahdysGrafiikka - luokassa on rajahdys olion piirtämiseen tarvittavat tiedot.
 
 ***********************
 |Pelimoottori paketti:|
