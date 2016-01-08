@@ -128,8 +128,8 @@ public class NappaimistonKuuntelija implements KeyListener {
 
         if (p1.getElama() == 0 || p2.getElama() == 0) {
             if (key == KeyEvent.VK_ENTER) {
-                p1.uusiPeli(50, 150);
-                p2.uusiPeli(740, 450);
+                p1.nollaaPelaaja(50, 150);
+                p2.nollaaPelaaja(740, 450);
             }
         }
     }

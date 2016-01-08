@@ -89,7 +89,7 @@ public class Pelaaja {
      * @param x x koordinaatti
      * @param y y koordinaatti
      */
-    public void uusiPeli(double x, double y) {
+    public void nollaaPelaaja(double x, double y) {
         alus.setX(x);
         alus.setY(y);
         this.elama = 100;
@@ -101,7 +101,7 @@ public class Pelaaja {
     /**
      * Tätä metodia kutsutaan kun peli on loppunut niin, että alus pysähtyy.
      */
-    public void peliLoppui() {
+    public void pysaytaPelaaja() {
         alus.setKiihtyyko(false);
         alus.setKaantyyOikealle(false);
         alus.setKaantyyVasemmalle(false);

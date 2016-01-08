@@ -43,8 +43,8 @@ public class PeliLooppi {
         while (true) {
 
             if (a.getP1().getElama() == 0 || a.getP2().getElama() == 0) {
-                a.getP1().peliLoppui();
-                a.getP2().peliLoppui();
+                a.getP1().pysaytaPelaaja();
+                a.getP2().pysaytaPelaaja();
             }
 
             a.getP1().lataa();
