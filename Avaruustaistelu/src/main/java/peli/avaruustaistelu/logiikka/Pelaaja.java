@@ -82,8 +82,22 @@ public class Pelaaja {
         return this.lataus;
     }
 
-    public void setElama(int elama) {
-        this.elama = elama;
+    /**
+     * Tämä metodi resetoi pelaajan ja pelaajaa vastaavan aluksen kaikki
+     * parametrit.
+     *
+     * @param x x koordinaatti
+     * @param y y koordinaatti
+     */
+    public void uusiPeli(double x, double y) {
+        alus.setX(x);
+        alus.setY(y);
+        this.elama = 100;
+        alus.setKiihtyyko(false);
+        alus.setKaantyyOikealle(false);
+        alus.setKaantyyVasemmalle(false);
+        alus.setxSuuntainenNopeus(0);
+        alus.setySuuntainenNopeus(0);
     }
 
 }
