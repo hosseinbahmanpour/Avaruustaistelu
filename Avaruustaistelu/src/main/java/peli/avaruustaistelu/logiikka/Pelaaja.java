@@ -82,4 +82,8 @@ public class Pelaaja {
         return this.lataus;
     }
 
+    public void setElama(int elama) {
+        this.elama = elama;
+    }
+
 }

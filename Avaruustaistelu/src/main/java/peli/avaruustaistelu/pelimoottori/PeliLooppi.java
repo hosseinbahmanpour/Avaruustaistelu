@@ -39,8 +39,8 @@ public class PeliLooppi {
         int FPS = 25;
         long haluttuAika = 1000 / FPS;
 
-        while (a.getP1().getElama() > 0 && a.getP2().getElama() > 0) {
-            
+        while (true) {
+                        
             a.getP1().lataa();
             a.getP2().lataa();
 

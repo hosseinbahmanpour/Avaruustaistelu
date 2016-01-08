@@ -50,24 +50,27 @@ public class NappaimistonKuuntelija implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_UP) {
-            p1.getAlus().setKiihtyyko(true);
-        }
-        if (key == KeyEvent.VK_RIGHT) {
-            p1.getAlus().setKaantyyOikealle(true);
-        }
-        if (key == KeyEvent.VK_LEFT) {
-            p1.getAlus().setKaantyyVasemmalle(true);
+        if (p1.getElama() > 0 && p2.getElama() > 0) {
 
-        }
-        if (key == KeyEvent.VK_W) {
-            p2.getAlus().setKiihtyyko(true);
-        }
-        if (key == KeyEvent.VK_D) {
-            p2.getAlus().setKaantyyOikealle(true);
-        }
-        if (key == KeyEvent.VK_A) {
-            p2.getAlus().setKaantyyVasemmalle(true);
+            if (key == KeyEvent.VK_UP) {
+                p1.getAlus().setKiihtyyko(true);
+            }
+            if (key == KeyEvent.VK_RIGHT) {
+                p1.getAlus().setKaantyyOikealle(true);
+            }
+            if (key == KeyEvent.VK_LEFT) {
+                p1.getAlus().setKaantyyVasemmalle(true);
+
+            }
+            if (key == KeyEvent.VK_W) {
+                p2.getAlus().setKiihtyyko(true);
+            }
+            if (key == KeyEvent.VK_D) {
+                p2.getAlus().setKaantyyOikealle(true);
+            }
+            if (key == KeyEvent.VK_A) {
+                p2.getAlus().setKaantyyVasemmalle(true);
+            }
         }
     }
 
@@ -81,41 +84,55 @@ public class NappaimistonKuuntelija implements KeyListener {
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_SPACE) {
-            lA1.add(p1.ammu());
-        }
-        if (key == KeyEvent.VK_1) {
-            lA2.add(p2.ammu());
-        }
-        if (key == KeyEvent.VK_DOWN) {
-            if (p1.getLataus() == 100) {
-                sA1.add(p1.ammuSuperAse());
+        if (p1.getElama() > 0 && p2.getElama() > 0) {
+
+            if (key == KeyEvent.VK_SPACE) {
+                lA1.add(p1.ammu());
             }
-        }
-        if (key == KeyEvent.VK_S) {
-            if (p2.getLataus() == 100) {
-                sA2.add(p2.ammuSuperAse());
+            if (key == KeyEvent.VK_1) {
+                lA2.add(p2.ammu());
+            }
+            if (key == KeyEvent.VK_DOWN) {
+                if (p1.getLataus() == 100) {
+                    sA1.add(p1.ammuSuperAse());
+                }
+            }
+            if (key == KeyEvent.VK_S) {
+                if (p2.getLataus() == 100) {
+                    sA2.add(p2.ammuSuperAse());
+                }
+            }
+
+            if (key == KeyEvent.VK_UP) {
+                p1.getAlus().setKiihtyyko(false);
+            }
+            if (key == KeyEvent.VK_RIGHT) {
+                p1.getAlus().setKaantyyOikealle(false);
+            }
+            if (key == KeyEvent.VK_LEFT) {
+                p1.getAlus().setKaantyyVasemmalle(false);
+            }
+
+            if (key == KeyEvent.VK_W) {
+                p2.getAlus().setKiihtyyko(false);
+            }
+            if (key == KeyEvent.VK_D) {
+                p2.getAlus().setKaantyyOikealle(false);
+            }
+            if (key == KeyEvent.VK_A) {
+                p2.getAlus().setKaantyyVasemmalle(false);
             }
         }
 
-        if (key == KeyEvent.VK_UP) {
-            p1.getAlus().setKiihtyyko(false);
-        }
-        if (key == KeyEvent.VK_RIGHT) {
-            p1.getAlus().setKaantyyOikealle(false);
-        }
-        if (key == KeyEvent.VK_LEFT) {
-            p1.getAlus().setKaantyyVasemmalle(false);
-        }
-
-        if (key == KeyEvent.VK_W) {
-            p2.getAlus().setKiihtyyko(false);
-        }
-        if (key == KeyEvent.VK_D) {
-            p2.getAlus().setKaantyyOikealle(false);
-        }
-        if (key == KeyEvent.VK_A) {
-            p2.getAlus().setKaantyyVasemmalle(false);
+        if (p1.getElama() == 0 || p2.getElama() == 0) {
+            if (key == KeyEvent.VK_ENTER) {
+                p1.setElama(100);
+                p2.setElama(100);
+                p1.getAlus().setX(50);
+                p1.getAlus().setY(150);
+                p2.getAlus().setX(730);
+                p2.getAlus().setY(450);
+            }
         }
     }
 

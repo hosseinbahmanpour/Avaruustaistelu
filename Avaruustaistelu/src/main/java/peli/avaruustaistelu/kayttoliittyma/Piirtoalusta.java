@@ -81,7 +81,8 @@ public class Piirtoalusta extends JPanel {
             g2d.setColor(Color.RED);
             g2d.drawRect(300, 175, 200, 50);
             g2d.setColor(Color.WHITE);
-            g2d.drawString("GAME OVER", 370, 200);
+            g2d.drawString("GAME OVER", 360, 195);
+            g2d.drawString("Uusi peli? Paina ENTER.", 330, 215);
         }
     }
 
