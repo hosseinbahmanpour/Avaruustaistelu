@@ -93,11 +93,17 @@ public class Pelaaja {
         alus.setX(x);
         alus.setY(y);
         this.elama = 100;
+        alus.setxSuuntainenNopeus(0);
+        alus.setySuuntainenNopeus(0);
+    }
+
+    /**
+     * Tätä metodia kutsutaan kun peli on loppunut niin, että alus pysähtyy.
+     */
+    public void peliLoppui() {
         alus.setKiihtyyko(false);
         alus.setKaantyyOikealle(false);
         alus.setKaantyyVasemmalle(false);
-        alus.setxSuuntainenNopeus(0);
-        alus.setySuuntainenNopeus(0);
     }
 
 }

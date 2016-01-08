@@ -40,7 +40,12 @@ public class PeliLooppi {
         long haluttuAika = 1000 / FPS;
 
         while (true) {
-                        
+
+            if (a.getP1().getElama() == 0 || a.getP2().getElama() == 0) {
+                a.getP1().peliLoppui();
+                a.getP2().peliLoppui();
+            }
+
             a.getP1().lataa();
             a.getP2().lataa();
 
