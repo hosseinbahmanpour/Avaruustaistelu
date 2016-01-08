@@ -76,12 +76,12 @@ public class Piirtoalusta extends JPanel {
             s.getSuperAseGrafiikka().piirra(g);
         }
 
+        a.getPelaaja1AlusGrafiikka().piirra(g2d);
+        a.getPelaaja2AlusGrafiikka().piirra(g2d);
+
         for (Rajahdys r : a.getRajahdykset()) {
             r.getRajahdysGrafiikka().piirra(g);
         }
-
-        a.getPelaaja1AlusGrafiikka().piirra(g2d);
-        a.getPelaaja2AlusGrafiikka().piirra(g2d);
 
         if (a.getP1().getElama() == 0 || a.getP2().getElama() == 0) {
             g2d.setColor(Color.RED);
