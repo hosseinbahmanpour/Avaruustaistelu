@@ -93,6 +93,7 @@ public class Pelaaja {
         alus.setX(x);
         alus.setY(y);
         this.elama = 100;
+        this.lataus = 100;
         alus.setxSuuntainenNopeus(0);
         alus.setySuuntainenNopeus(0);
     }
