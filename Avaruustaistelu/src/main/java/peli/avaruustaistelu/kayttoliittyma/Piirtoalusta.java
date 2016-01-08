@@ -75,7 +75,7 @@ public class Piirtoalusta extends JPanel {
         for (SuperAse s : a.getPelaaja2SuperAse()) {
             s.getSuperAseGrafiikka().piirra(g);
         }
-
+        
         a.getPelaaja1AlusGrafiikka().piirra(g2d);
         a.getPelaaja2AlusGrafiikka().piirra(g2d);
 
