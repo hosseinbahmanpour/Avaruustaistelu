@@ -37,7 +37,8 @@ public class AlusGrafiikka {
     }
 
     /**
-     * Metodissa piirretään alus olio
+     * Metodissa piirretään alus olio. Jos alus kiihtyy, piirretään aluksen
+     * perään liekki.
      *
      * @param g java grafiikka
      */

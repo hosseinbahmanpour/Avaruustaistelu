@@ -1,11 +1,9 @@
 package peli.avaruustaistelu;
 
-
 import peli.avaruustaistelu.pelimoottori.PeliLooppi;
 import peli.avaruustaistelu.logiikka.Avaruustaistelu;
 import javax.swing.SwingUtilities;
 import peli.avaruustaistelu.kayttoliittyma.Kayttoliittyma;
-
 
 /**
  * Pelin main luokkassa on pelin gamelooppi ja törmäysten laskemisen metodi.

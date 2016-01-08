@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JPanel;
+import peli.avaruustaistelu.logiikka.Rajahdys;
 import peli.avaruustaistelu.logiikka.Avaruustaistelu;
 import peli.avaruustaistelu.logiikka.Laaseri;
 import peli.avaruustaistelu.logiikka.SuperAse;
@@ -35,7 +36,8 @@ public class Piirtoalusta extends JPanel {
     }
 
     /**
-     * Metodi piirtää kaikki pelin oliot joilla on grafiikka.
+     * Metodi piirtää kaikki pelin oliot joilla on grafiikka. Myös pelaajien
+     * tiedot piirretään, sekä Game Over ruutu jos peli loppui.
      *
      * @param g Javan grafiikka.
      */
@@ -72,6 +74,10 @@ public class Piirtoalusta extends JPanel {
 
         for (SuperAse s : a.getPelaaja2SuperAse()) {
             s.getSuperAseGrafiikka().piirra(g);
+        }
+
+        for (Rajahdys r : a.getRajahdykset()) {
+            r.getRajahdysGrafiikka().piirra(g);
         }
 
         a.getPelaaja1AlusGrafiikka().piirra(g2d);

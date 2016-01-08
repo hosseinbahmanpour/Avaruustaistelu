@@ -42,7 +42,8 @@ public class NappaimistonKuuntelija implements KeyListener {
     }
 
     /**
-     * Metodi muuttaa boolean arvoja perustuen siihen onko nappi painettu.
+     * Metodi muuttaa boolean arvoja perustuen siihen onko nappi painettu, jos
+     * peli on käynnissä.
      *
      * @param e painettu nappi.
      */
@@ -75,8 +76,9 @@ public class NappaimistonKuuntelija implements KeyListener {
     }
 
     /**
-     * metodi muuttaa pelaaiien alusten boolean arvoja perustuen siihen että
-     * nappia ei paineta.
+     * Metodi muuttaa pelaaiien alusten boolean arvoja perustuen siihen että
+     * nappia ei paineta, jos peli on käynnissä. Jos peli on loppunut, painetaan
+     * Enteriä uuden pelin aloittamiseksi.
      *
      * @param e painamaton nappi.
      */

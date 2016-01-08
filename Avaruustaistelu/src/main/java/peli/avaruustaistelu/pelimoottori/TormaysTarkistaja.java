@@ -3,11 +3,12 @@ package peli.avaruustaistelu.pelimoottori;
 import peli.avaruustaistelu.logiikka.Avaruustaistelu;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import peli.avaruustaistelu.logiikka.Rajahdys;
 import peli.avaruustaistelu.logiikka.Laaseri;
 import peli.avaruustaistelu.logiikka.SuperAse;
 
 /**
- * Luokka tarkistaa olioiden törmäämiset x y koordinaatistolla
+ * Luokka tarkistaa olioiden törmäämiset x y koordinaatistolla.
  *
  * @author Hossein Bahmanpour
  */
@@ -50,6 +51,7 @@ public class TormaysTarkistaja {
 
             if (etaisyysA2 <= (l.getSade() + a.getPelaaja2Alus().getSade())) {
                 a.getP2().ottaaDamagee(1);
+                a.getRajahdykset().add(new Rajahdys(l.getX(), l.getY()));
                 poistettavatLaaseritP1.add(l);
             }
         }
@@ -60,6 +62,7 @@ public class TormaysTarkistaja {
 
             if (etaisyysA1 <= (l.getSade() + a.getPelaaja1Alus().getSade())) {
                 a.getP1().ottaaDamagee(1);
+                a.getRajahdykset().add(new Rajahdys(l.getX(), l.getY()));
                 poistettavatLaaseritP2.add(l);
             }
         }
@@ -77,9 +80,10 @@ public class TormaysTarkistaja {
             double etaisyysA2 = s.getKeskipiste().distance(a2Keskipiste);
 
             if (etaisyysA2 <= (s.getSade() + a.getPelaaja2Alus().getSade())) {
-                a.getPelaaja2Alus().setxSuuntainenNopeus(s.getxSuuntainenNopeus() / 2 - a.getPelaaja2Alus().getxSuuntainenNopeus());
-                a.getPelaaja2Alus().setySuuntainenNopeus(s.getySuuntainenNopeus() / 2 - a.getPelaaja2Alus().getySuuntainenNopeus());
+                a.getPelaaja2Alus().setxSuuntainenNopeus(s.getxSuuntainenNopeus() - a.getPelaaja2Alus().getxSuuntainenNopeus());
+                a.getPelaaja2Alus().setySuuntainenNopeus(s.getySuuntainenNopeus() - a.getPelaaja2Alus().getySuuntainenNopeus());
                 a.getP2().ottaaDamagee(20);
+                a.getRajahdykset().add(new Rajahdys(s.getX(), s.getY()));
                 poistettavatSuperAseetP1.add(s);
             }
         }
@@ -89,9 +93,10 @@ public class TormaysTarkistaja {
             double etaisyysA1 = s.getKeskipiste().distance(a1Keskipiste);
 
             if (etaisyysA1 <= (s.getSade() + a.getPelaaja1Alus().getSade())) {
-                a.getPelaaja1Alus().setxSuuntainenNopeus(s.getxSuuntainenNopeus() / 2 - a.getPelaaja1Alus().getxSuuntainenNopeus());
-                a.getPelaaja1Alus().setySuuntainenNopeus(s.getySuuntainenNopeus() / 2 - a.getPelaaja1Alus().getySuuntainenNopeus());
+                a.getPelaaja1Alus().setxSuuntainenNopeus(s.getxSuuntainenNopeus() - a.getPelaaja1Alus().getxSuuntainenNopeus());
+                a.getPelaaja1Alus().setySuuntainenNopeus(s.getySuuntainenNopeus() - a.getPelaaja1Alus().getySuuntainenNopeus());
                 a.getP1().ottaaDamagee(20);
+                a.getRajahdykset().add(new Rajahdys(s.getX(), s.getY()));
                 poistettavatSuperAseetP2.add(s);
             }
         }

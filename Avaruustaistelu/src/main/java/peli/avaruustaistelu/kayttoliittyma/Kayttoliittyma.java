@@ -28,7 +28,7 @@ public class Kayttoliittyma implements Runnable {
     }
 
     /**
-     * metodissa annetaan luodulle ikkunalle näkyvä otsikko. ikkuna asetetaan
+     * Metodissa annetaan luodulle ikkunalle näkyvä otsikko. Ikkuna asetetaan
      * näkyväksi, sen koko asetetaan ja komponentit lisätään.
      */
     @Override
@@ -42,7 +42,7 @@ public class Kayttoliittyma implements Runnable {
     }
 
     /**
-     * komponentteja luodessa luodaan pelille näppäimistönkuuntelija.
+     * Komponentteja luodessa luodaan pelille näppäimistönkuuntelija.
      *
      * @param container ikkuna.
      */

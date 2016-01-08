@@ -1,6 +1,7 @@
 package peli.avaruustaistelu.pelimoottori;
 
 import java.util.Iterator;
+import peli.avaruustaistelu.logiikka.Rajahdys;
 import peli.avaruustaistelu.logiikka.Avaruustaistelu;
 import peli.avaruustaistelu.kayttoliittyma.Kayttoliittyma;
 import peli.avaruustaistelu.logiikka.Laaseri;
@@ -51,6 +52,17 @@ public class PeliLooppi {
 
             a.getPelaaja1Alus().liiku(a.getLeveys(), a.getKorkeus());
             a.getPelaaja2Alus().liiku(a.getLeveys(), a.getKorkeus());
+
+            for (Rajahdys r : a.getRajahdykset()) {
+                r.laajene();
+            }
+
+            Iterator<Rajahdys> iteraattoriR = a.getRajahdykset().iterator();
+            while (iteraattoriR.hasNext()) {
+                if (iteraattoriR.next().getElamaaJaljella() < 1) {
+                    iteraattoriR.remove();
+                }
+            }
 
             for (Laaseri l : a.getPelaaja1Laaserit()) {
                 l.liiku(a.getLeveys(), a.getKorkeus());

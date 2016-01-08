@@ -28,7 +28,7 @@ public class LaaseriGrafiikka {
     }
 
     /**
-     * laaserin piirtämisen metodi
+     * laaserin piirtämisen metodi.
      *
      * @param g Java grafiikka.
      */
