@@ -53,4 +53,14 @@ public class SuperAseTest {
         assertFalse(s2.getAktiivinen());
     }
 
+    @Test
+    public void nopeusX() {
+        assertEquals(8, s.getxSuuntainenNopeus(), DELTA);
+    }
+
+    @Test
+    public void nopeusY() {
+        assertEquals(0, s.getySuuntainenNopeus(), DELTA);
+    }
+
 }

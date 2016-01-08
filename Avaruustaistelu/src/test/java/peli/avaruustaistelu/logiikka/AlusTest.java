@@ -35,27 +35,38 @@ public class AlusTest {
         a.setY(100);
         assertEquals(100, a.getY(), DELTA);
     }
-    
+
     @Test
     public void kaantyminenOikealleToimiiOikein() {
         a.setKaantyyOikealle(true);
         a.liiku(100, 100);
         assertEquals(0.15, a.getKulma(), DELTA);
     }
-    
+
     @Test
     public void kaantyminenVasemmalleToimiiOikein() {
         a.setKaantyyVasemmalle(true);
-        a.liiku(100, 100);        
+        a.liiku(100, 100);
         assertEquals(-0.15, a.getKulma(), DELTA);
     }
-    
+
     @Test
     public void kiihtyminenToimiiOikein() {
         a.setKiihtyyko(true);
         a.liiku(100, 100);
         assertEquals(0.5, a.getX(), DELTA);
-    } 
-                
+    }
+
+    @Test
+    public void alusLiikkuuOikeinX() {
+        a.setxSuuntainenNopeus(1);
+        assertEquals(1, a.getxSuuntainenNopeus(), DELTA);
+    }
+
+    @Test
+    public void alusLiikkuuOikeinY() {
+        a.setySuuntainenNopeus(1);
+        assertEquals(1, a.getySuuntainenNopeus(), DELTA);
+    }
 
 }
